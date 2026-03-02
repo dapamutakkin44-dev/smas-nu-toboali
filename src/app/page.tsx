@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white font-sans overflow-x-hidden text-slate-900">
       
-      {/* 1. NAVBAR GLASSMORPHISM (Efek Kaca Futuristik) */}
+      {/* 1. NAVBAR GLASSMORPHISM */}
       <nav className="bg-[#064E3B]/80 backdrop-blur-lg text-white py-3 shadow-2xl sticky top-0 z-[100] border-b border-amber-500/30 transition-all duration-300">
         <div className="container mx-auto flex justify-between items-center px-6">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-3">
@@ -42,38 +42,39 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* 2. HERO SECTION DENGAN JUDUL GRADASI EMAS */}
-      <section className="relative h-[85vh] flex items-center justify-center text-white text-center">
+      {/* 2. HERO SECTION (SUDAH DIRAPIKAN) */}
+      <section className="relative h-[85vh] flex items-center justify-center text-white text-center pt-16">
         <div className="absolute inset-0 z-0">
           <Image src="/gedung-sekolah.jpg" alt="Gedung" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#064E3B]/90"></div>
         </div>
         
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="relative z-10 px-6">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="relative z-10 px-6 max-w-5xl">
           <motion.div 
             initial={{ scale: 0.8 }} 
             animate={{ scale: 1 }} 
-            className="inline-block px-4 py-1 border border-amber-500 text-amber-400 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] mb-6 bg-black/40 backdrop-blur-sm shadow-lg shadow-amber-500/20"
+            className="inline-block px-4 py-1 border border-amber-500 text-amber-400 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] mb-8 bg-black/40 backdrop-blur-sm shadow-lg shadow-amber-500/20"
           >
             Akreditasi A (UNGGUL)
           </motion.div>
           
-          <h2 className="text-6xl md:text-9xl font-black mb-6 leading-none uppercase tracking-tighter italic drop-shadow-2xl">
+          {/* Font size diatur ulang agar pas di layar (7xl di desktop) */}
+          <h2 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] uppercase tracking-tighter italic drop-shadow-2xl">
             Membangun <br/> 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-600">
               Berakhlak
             </span> <br className="md:hidden" /> & Kompeten
           </h2>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="mt-8">
-            <Link href="/ppdb" className="inline-block bg-gradient-to-r from-amber-600 to-amber-500 text-white px-12 py-4 rounded-2xl font-black text-sm hover:from-amber-500 hover:to-amber-400 transition-all no-underline uppercase tracking-widest shadow-[0_10px_40px_rgba(217,119,6,0.4)] border-none">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link href="/ppdb" className="inline-block bg-gradient-to-r from-amber-600 to-amber-500 text-white px-10 py-4 rounded-2xl font-black text-sm hover:from-amber-500 hover:to-amber-400 transition-all no-underline uppercase tracking-widest shadow-[0_10px_40px_rgba(217,119,6,0.4)] border-none">
               Daftar Sekarang <ChevronRight className="inline ml-1" size={18} />
             </Link>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* 3. MENU CEPAT (Efek Hover Melayang) */}
+      {/* 3. MENU CEPAT */}
       <section className="relative z-20 -mt-16 max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
@@ -96,9 +97,9 @@ export default function HomePage() {
       {/* FOOTER */}
       <footer className="bg-[#011f18] py-16 text-center border-t-4 border-amber-500 text-white mt-20">
         <div className="flex justify-center gap-6 mb-8 items-center">
-          <Image src="/logo-yayasan.png" alt="Logo Yayasan" width={50} height={50} className="object-contain transition-opacity hover:opacity-100" />
+          <Image src="/logo-yayasan.png" alt="Logo Yayasan" width={50} height={50} className="object-contain" />
           <div className="w-[1px] h-10 bg-white/20"></div>
-          <Image src="/logo-sma.png" alt="Logo SMA" width={50} height={50} className="object-contain transition-opacity hover:opacity-100" />
+          <Image src="/logo-sma.png" alt="Logo SMA" width={50} height={50} className="object-contain" />
         </div>
         <p className="font-black tracking-[0.3em] uppercase text-sm mb-2">© 2026 SMAS NU TOBOALI</p>
         <p className="text-[10px] uppercase tracking-widest text-white/50">Di bawah naungan Yayasan Pendidikan Fathmah Alwi</p>
