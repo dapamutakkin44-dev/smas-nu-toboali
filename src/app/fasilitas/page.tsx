@@ -9,17 +9,17 @@ export default function FasilitasPage() {
     {
       nama: "Gedung Sekolah",
       deskripsi: "Gedung belajar yang representatif dengan suasana asri untuk kenyamanan santri.",
-      gambar: "/fasilitas/gedung.jpg"
+      gambar: "/gedung.jpg"
     },
     {
       nama: "Asrama Santri",
       deskripsi: "Fasilitas tempat tinggal yang bersih dan terpantau untuk mendukung kemandirian.",
-      gambar: "/fasilitas/asrama.jpg"
+      gambar: "/asrama.jpg"
     },
     {
       nama: "Laboratorium Komputer",
       deskripsi: "Ruang komputer modern untuk menunjang pembelajaran teknologi dan informatika.",
-      gambar: "/fasilitas/lab.jpg"
+      gambar: "lab.jpg"
     },
     {
       nama: "Perpustakaan",
