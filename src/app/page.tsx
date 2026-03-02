@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-white font-sans overflow-x-hidden text-slate-900">
       
-      {/* 1. NAVBAR GLASSMORPHISM */}
+      {/* 1. NAVBAR GLASSMORPHISM - Tetap di Atas */}
       <nav className="bg-[#064E3B]/80 backdrop-blur-lg text-white py-3 shadow-2xl sticky top-0 z-[100] border-b border-amber-500/30 transition-all duration-300">
         <div className="container mx-auto flex justify-between items-center px-6">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-3">
@@ -42,40 +42,39 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* 2. HERO SECTION (SUDAH DIRAPIKAN) */}
-      <section className="relative h-[85vh] flex items-center justify-center text-white text-center pt-16">
+      {/* 2. HERO SECTION - POSISI PRESISI AGAR TIDAK NABRAK */}
+      <section className="relative h-[92vh] flex items-center justify-center text-white text-center pt-24 pb-12">
         <div className="absolute inset-0 z-0">
           <Image src="/gedung-sekolah.jpg" alt="Gedung" fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#064E3B]/90"></div>
         </div>
         
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="relative z-10 px-6 max-w-5xl">
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="relative z-10 px-6 max-w-5xl flex flex-col items-center">
           <motion.div 
             initial={{ scale: 0.8 }} 
             animate={{ scale: 1 }} 
-            className="inline-block px-4 py-1 border border-amber-500 text-amber-400 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] mb-8 bg-black/40 backdrop-blur-sm shadow-lg shadow-amber-500/20"
+            className="inline-block px-4 py-1 border border-amber-500 text-amber-400 rounded-full text-[9px] font-bold uppercase tracking-[0.2em] mb-10 bg-black/40 backdrop-blur-sm shadow-lg shadow-amber-500/20"
           >
             Akreditasi A (UNGGUL)
           </motion.div>
           
-          {/* Font size diatur ulang agar pas di layar (7xl di desktop) */}
-          <h2 className="text-4xl md:text-7xl font-black mb-8 leading-[1.1] uppercase tracking-tighter italic drop-shadow-2xl">
+          <h2 className="text-5xl md:text-7xl font-black mb-10 leading-[1.1] uppercase tracking-tighter italic drop-shadow-2xl">
             Membangun <br/> 
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-600">
               Berakhlak
             </span> <br className="md:hidden" /> & Kompeten
           </h2>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/ppdb" className="inline-block bg-gradient-to-r from-amber-600 to-amber-500 text-white px-10 py-4 rounded-2xl font-black text-sm hover:from-amber-500 hover:to-amber-400 transition-all no-underline uppercase tracking-widest shadow-[0_10px_40px_rgba(217,119,6,0.4)] border-none">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="mt-6">
+            <Link href="/ppdb" className="inline-block bg-gradient-to-r from-amber-600 to-amber-500 text-white px-12 py-4 rounded-2xl font-black text-sm hover:from-amber-500 hover:to-amber-400 transition-all no-underline uppercase tracking-widest shadow-[0_10px_40px_rgba(217,119,6,0.4)] border-none">
               Daftar Sekarang <ChevronRight className="inline ml-1" size={18} />
             </Link>
           </motion.div>
         </motion.div>
       </section>
 
-      {/* 3. MENU CEPAT */}
-      <section className="relative z-20 -mt-16 max-w-6xl mx-auto px-6">
+      {/* 3. MENU CEPAT - MEPET DENGAN HERO */}
+      <section className="relative z-20 -mt-20 max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
           {[
             { n: "Visi Misi", h: "/profil", c: "bg-emerald-800", i: <Users size={24}/> },
