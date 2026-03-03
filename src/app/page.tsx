@@ -4,21 +4,18 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { GraduationCap, Book, Users, Star, ChevronRight, Bell, Camera, MapPin } from 'lucide-react';
+import { GraduationCap, Book, Users, Star, ChevronRight, Bell, Camera, MapPin, ChevronDown } from 'lucide-react';
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#fcfdfd] overflow-x-hidden font-sans text-slate-800">
       
-      {/* 1. NAVBAR - URUTAN LOGO: PENDIDIKAN, YAYASAN, SMA */}
+      {/* 1. NAVBAR DENGAN DROPDOWN (MEGA MENU) */}
       <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-emerald-100 py-3 px-6 md:px-12 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-3">
           <div className="flex gap-2 bg-white p-1.5 rounded-2xl border border-emerald-50 shadow-inner">
-            {/* LOGO 1: PENDIDIKAN (KIRI) */}
             <Image src="/logo-pendidikan.png" alt="Pusat" width={28} height={28} className="object-contain" />
-            {/* LOGO 2: YAYASAN (TENGAH) */}
             <Image src="/logo-yayasan.png" alt="Yayasan" width={28} height={28} className="object-contain" />
-            {/* LOGO 3: SMA (KANAN) */}
             <Image src="/logo-sma.png" alt="SMA" width={28} height={28} className="object-contain" />
           </div>
           <div className="flex flex-col text-left">
@@ -27,13 +24,35 @@ export default function HomePage() {
           </div>
         </div>
         
+        {/* MENU NAVIGASI DENGAN SUB-TEMA */}
         <div className="hidden md:flex gap-8 text-[11px] font-black uppercase text-slate-500 tracking-widest items-center">
-          {['Profil', 'Akademik', 'Kesiswaan', 'Galeri'].map((item) => (
-            <Link key={item} href="#" className="hover:text-emerald-600 transition-all relative group no-underline">
-              {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 transition-all group-hover:w-full"></span>
-            </Link>
-          ))}
+          
+          {/* DROPDOWN PROFIL */}
+          <div className="relative group py-2 cursor-pointer">
+            <span className="hover:text-emerald-600 transition-all flex items-center gap-1">
+              Profil <ChevronDown size={12} />
+            </span>
+            <div className="absolute top-full left-0 w-56 bg-white shadow-2xl rounded-2xl border border-emerald-50 py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+              <Link href="/profil/sejarah" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Sejarah Sekolah</Link>
+              <Link href="/profil/visi-misi" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Visi & Misi</Link>
+              <Link href="/profil/struktur" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Struktur Organisasi</Link>
+            </div>
+          </div>
+
+          {/* DROPDOWN AKADEMIK */}
+          <div className="relative group py-2 cursor-pointer">
+            <span className="hover:text-emerald-600 transition-all flex items-center gap-1">
+              Akademik <ChevronDown size={12} />
+            </span>
+            <div className="absolute top-full left-0 w-56 bg-white shadow-2xl rounded-2xl border border-emerald-50 py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+              <Link href="/akademik/kurikulum" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Kurikulum</Link>
+              <Link href="/akademik/guru" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Tenaga Pendidik</Link>
+              <Link href="/akademik/fasilitas" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Fasilitas Belajar</Link>
+            </div>
+          </div>
+
+          <Link href="/galeri" className="hover:text-emerald-600 transition-all no-underline">Galeri</Link>
+          
           <Link href="/ppdb" className="bg-emerald-600 text-white px-7 py-2.5 rounded-full no-underline hover:shadow-xl hover:shadow-emerald-200 transition-all font-black border-none">PPDB 2026</Link>
         </div>
       </nav>
@@ -72,7 +91,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. FOOTER - TETAP DENGAN LOGO LENGKAP */}
+      {/* 4. FOOTER */}
       <footer className="bg-white py-16 border-t border-emerald-100 text-center">
         <div className="flex justify-center gap-6 mb-8 items-center opacity-80">
           <Image src="/logo-pendidikan.png" alt="Kemendikbud" width={40} height={40} />
