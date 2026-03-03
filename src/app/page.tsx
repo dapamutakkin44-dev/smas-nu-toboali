@@ -10,13 +10,16 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#fcfdfd] overflow-x-hidden font-sans text-slate-800">
       
-      {/* NAVBAR - URUTAN: YAYASAN, SMA, PENDIDIKAN */}
+      {/* 1. NAVBAR - URUTAN LOGO: PENDIDIKAN, YAYASAN, SMA */}
       <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-emerald-100 py-3 px-6 md:px-12 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-3">
           <div className="flex gap-2 bg-white p-1.5 rounded-2xl border border-emerald-50 shadow-inner">
-            <Image src="/logo-yayasan.png" alt="Yayasan" width={28} height={28} className="object-contain" />
-            <Image src="/logo-sma.png" alt="SMA" width={28} height={28} className="object-contain" />
+            {/* LOGO 1: PENDIDIKAN (KIRI) */}
             <Image src="/logo-pendidikan.png" alt="Pusat" width={28} height={28} className="object-contain" />
+            {/* LOGO 2: YAYASAN (TENGAH) */}
+            <Image src="/logo-yayasan.png" alt="Yayasan" width={28} height={28} className="object-contain" />
+            {/* LOGO 3: SMA (KANAN) */}
+            <Image src="/logo-sma.png" alt="SMA" width={28} height={28} className="object-contain" />
           </div>
           <div className="flex flex-col text-left">
             <h1 className="font-black text-emerald-900 text-[10px] md:text-sm tracking-tighter uppercase italic leading-tight">SMAS NU TOBOALI</h1>
@@ -35,14 +38,14 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* RUNNING TEXT */}
+      {/* 2. RUNNING TEXT */}
       <div className="fixed top-[68px] w-full z-40 bg-amber-400 py-1.5 overflow-hidden whitespace-nowrap shadow-sm border-b border-amber-500/20">
         <motion.div animate={{ x: ["0%", "-100%"] }} transition={{ repeat: Infinity, duration: 35, ease: "linear" }} className="inline-block text-emerald-950 font-black text-[9px] uppercase tracking-[0.2em]">
           ✨ PENERIMAAN PESERTA DIDIK BARU SMAS NU TOBOALI TAHUN 2026/2027 TELAH DIBUKA! DAFTARKAN DIRI SEGERA ✨ &nbsp;&nbsp;&nbsp;&nbsp;
         </motion.div>
       </div>
 
-      {/* HERO SECTION */}
+      {/* 3. HERO SECTION */}
       <section className="relative min-h-screen flex items-center pt-32 px-6 md:px-20 overflow-hidden bg-gradient-to-b from-white to-emerald-50/30">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-3/5 text-center md:text-left z-10">
@@ -68,12 +71,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      {/* BAGIAN PENUTUP AKHIR */}
+
+      {/* 4. FOOTER - TETAP DENGAN LOGO LENGKAP */}
       <footer className="bg-white py-16 border-t border-emerald-100 text-center">
         <div className="flex justify-center gap-6 mb-8 items-center opacity-80">
+          <Image src="/logo-pendidikan.png" alt="Kemendikbud" width={40} height={40} />
           <Image src="/logo-yayasan.png" alt="Yayasan" width={40} height={40} />
           <Image src="/logo-sma.png" alt="SMA" width={40} height={40} />
-          <Image src="/logo-pendidikan.png" alt="Kemendikbud" width={40} height={40} />
         </div>
         <p className="font-black tracking-[0.4em] uppercase text-[10px] text-slate-400 mb-2">© 2026 SMAS NU TOBOALI</p>
         <p className="text-[9px] uppercase tracking-[0.2em] text-emerald-600/60 font-black italic">Membangun Berakhlak & Kompeten</p>
