@@ -4,79 +4,79 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { GraduationCap, ChevronRight, Bell, Star } from 'lucide-react';
+import { GraduationCap, Book, Users, Star, ChevronRight, Bell, Camera, MapPin } from 'lucide-react';
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#fcfdfd] overflow-x-hidden font-sans text-slate-800">
       
-      {/* NAVBAR GAYA UNIV - FIX LOGO */}
-      <nav className="fixed top-0 w-full z-[100] bg-white/90 backdrop-blur-lg border-b border-emerald-100 py-3 px-6 flex justify-between items-center shadow-sm">
+      {/* NAVBAR - URUTAN: YAYASAN, SMA, PENDIDIKAN */}
+      <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-emerald-100 py-3 px-6 md:px-12 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="flex gap-2 bg-white p-1.5 rounded-xl border border-emerald-50 shadow-sm">
-            {/* Memanggil file sesuai folder mimin */}
-            <Image src="/logo-yayasan.png" alt="Logo Yayasan" width={28} height={28} className="object-contain" />
-            <Image src="/logo-sma.png" alt="Logo SMA" width={28} height={28} className="object-contain" />
-            <Image src="/logo-pendidikan.png" alt="Logo Pendidikan" width={28} height={28} className="object-contain" />
+          <div className="flex gap-2 bg-white p-1.5 rounded-2xl border border-emerald-50 shadow-inner">
+            <Image src="/logo-yayasan.png" alt="Yayasan" width={28} height={28} className="object-contain" />
+            <Image src="/logo-sma.png" alt="SMA" width={28} height={28} className="object-contain" />
+            <Image src="/logo-pendidikan.png" alt="Pusat" width={28} height={28} className="object-contain" />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col text-left">
             <h1 className="font-black text-emerald-900 text-[10px] md:text-sm tracking-tighter uppercase italic leading-tight">SMAS NU TOBOALI</h1>
             <span className="text-[7px] font-bold text-emerald-600 tracking-[0.2em] uppercase italic">Bangka Selatan</span>
           </div>
         </div>
         
-        <div className="hidden md:flex gap-6 text-[10px] font-bold uppercase text-slate-500 tracking-widest items-center">
-          <Link href="/ppdb" className="bg-emerald-600 text-white px-5 py-2 rounded-full no-underline hover:bg-emerald-700 transition-all font-black shadow-md">PPDB 2026</Link>
+        <div className="hidden md:flex gap-8 text-[11px] font-black uppercase text-slate-500 tracking-widest items-center">
+          {['Profil', 'Akademik', 'Kesiswaan', 'Galeri'].map((item) => (
+            <Link key={item} href="#" className="hover:text-emerald-600 transition-all relative group no-underline">
+              {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-500 transition-all group-hover:w-full"></span>
+            </Link>
+          ))}
+          <Link href="/ppdb" className="bg-emerald-600 text-white px-7 py-2.5 rounded-full no-underline hover:shadow-xl hover:shadow-emerald-200 transition-all font-black border-none">PPDB 2026</Link>
         </div>
       </nav>
 
-      {/* HERO SECTION - DENGAN FOTO ANAK-ANAK */}
-      <section className="relative min-h-screen flex items-center pt-24 px-6 md:px-20 overflow-hidden">
+      {/* RUNNING TEXT */}
+      <div className="fixed top-[68px] w-full z-40 bg-amber-400 py-1.5 overflow-hidden whitespace-nowrap shadow-sm border-b border-amber-500/20">
+        <motion.div animate={{ x: ["0%", "-100%"] }} transition={{ repeat: Infinity, duration: 35, ease: "linear" }} className="inline-block text-emerald-950 font-black text-[9px] uppercase tracking-[0.2em]">
+          ✨ PENERIMAAN PESERTA DIDIK BARU SMAS NU TOBOALI TAHUN 2026/2027 TELAH DIBUKA! DAFTARKAN DIRI SEGERA ✨ &nbsp;&nbsp;&nbsp;&nbsp;
+        </motion.div>
+      </div>
+
+      {/* HERO SECTION */}
+      <section className="relative min-h-screen flex items-center pt-32 px-6 md:px-20 overflow-hidden bg-gradient-to-b from-white to-emerald-50/30">
         <div className="container mx-auto flex flex-col md:flex-row items-center gap-10">
-          
-          {/* SISI KIRI: TEKS */}
           <div className="md:w-3/5 text-center md:text-left z-10">
-            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-[9px] font-bold uppercase mb-6 border border-emerald-100">
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-[9px] font-bold uppercase mb-8 border border-emerald-100">
               <Bell size={12} className="animate-bounce" /> Pendaftaran Online Dibuka
             </motion.div>
-            
-            <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-7xl font-black text-slate-800 leading-[1.0] mb-6 uppercase italic tracking-tighter">
+            <motion.h2 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-8xl font-black text-slate-800 leading-[1.0] mb-8 uppercase italic tracking-tighter">
               Membangun <br/> <span className="text-emerald-600">Berakhlak</span> <br/> & Kompeten
             </motion.h2>
-
-            <Link href="/ppdb" className="bg-emerald-600 text-white px-10 py-4 rounded-2xl font-black text-xs no-underline uppercase tracking-widest shadow-xl hover:bg-slate-800 transition-all inline-block border-none">
-              Daftar Sekarang <ChevronRight className="inline ml-1" size={16} />
+            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="text-slate-500 text-sm md:text-lg mb-10 max-w-xl font-medium leading-relaxed italic">
+              "Mewujudkan generasi emas yang unggul dalam ilmu dan mulia dalam adab bersama SMAS NU Toboali."
+            </motion.p>
+            <Link href="/ppdb" className="bg-emerald-600 text-white px-12 py-5 rounded-2xl font-black text-sm no-underline uppercase tracking-widest shadow-2xl hover:bg-slate-800 transition-all inline-block border-none">
+              Daftar Sekarang <ChevronRight className="inline ml-1" />
             </Link>
           </div>
 
-          {/* SISI KANAN: FOTO ANAK-ANAK - FIX NAMA FILE */}
-          <div className="md:w-2/5 relative mt-12 md:mt-0">
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} className="relative z-10 w-full h-[450px] md:h-[550px]">
-              {/* Memastikan nama file sesuai dengan Screenshot: foto-anak-nu.png */}
-              <Image 
-                src="/foto-anak-nu.png" 
-                alt="Siswa SMAS NU" 
-                fill 
-                className="object-contain drop-shadow-2xl"
-                priority
-              />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-emerald-400/20 rounded-full blur-[80px] -z-10"></div>
-            </motion.div>
-
-            {/* Floating Badge Akreditasi */}
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ repeat: Infinity, duration: 4 }} className="absolute bottom-10 left-0 bg-white p-3 rounded-xl shadow-2xl border border-emerald-50 z-20 hidden md:block">
-              <div className="flex items-center gap-2">
-                <Star className="text-amber-500" fill="currentColor" size={16} />
-                <p className="text-[10px] font-black text-emerald-800 uppercase leading-none">Akreditasi A</p>
-              </div>
+          <div className="md:w-2/5 relative mt-12 md:mt-0 flex justify-center">
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative z-10 w-[350px] md:w-[500px] h-[450px] md:h-[600px]">
+              <Image src="/foto-anak-nu.png" alt="Siswa SMAS NU" fill className="object-contain drop-shadow-2xl" priority />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[450px] h-[300px] md:h-[450px] bg-emerald-400/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
             </motion.div>
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="bg-slate-50 py-10 border-t border-emerald-100 text-center">
-        <p className="font-black tracking-[0.3em] uppercase text-[9px] text-slate-400">© 2026 SMAS NU TOBOALI</p>
+      {/* BAGIAN PENUTUP AKHIR */}
+      <footer className="bg-white py-16 border-t border-emerald-100 text-center">
+        <div className="flex justify-center gap-6 mb-8 items-center opacity-80">
+          <Image src="/logo-yayasan.png" alt="Yayasan" width={40} height={40} />
+          <Image src="/logo-sma.png" alt="SMA" width={40} height={40} />
+          <Image src="/logo-pendidikan.png" alt="Kemendikbud" width={40} height={40} />
+        </div>
+        <p className="font-black tracking-[0.4em] uppercase text-[10px] text-slate-400 mb-2">© 2026 SMAS NU TOBOALI</p>
+        <p className="text-[9px] uppercase tracking-[0.2em] text-emerald-600/60 font-black italic">Membangun Berakhlak & Kompeten</p>
       </footer>
     </main>
   );
