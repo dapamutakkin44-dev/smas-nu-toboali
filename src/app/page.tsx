@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#fcfdfd] overflow-x-hidden font-sans text-slate-800">
       
-      {/* 1. NAVBAR DENGAN DROPDOWN (MEGA MENU) */}
+      {/* 1. NAVBAR - URUTAN: PENDIDIKAN, YAYASAN, SMA */}
       <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-emerald-100 py-3 px-6 md:px-12 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-3">
           <div className="flex gap-2 bg-white p-1.5 rounded-2xl border border-emerald-50 shadow-inner">
@@ -24,35 +24,20 @@ export default function HomePage() {
           </div>
         </div>
         
-        {/* MENU NAVIGASI DENGAN SUB-TEMA */}
         <div className="hidden md:flex gap-8 text-[11px] font-black uppercase text-slate-500 tracking-widest items-center">
-          
-          {/* DROPDOWN PROFIL */}
+          {/* MENU DROPDOWN PROFIL */}
           <div className="relative group py-2 cursor-pointer">
             <span className="hover:text-emerald-600 transition-all flex items-center gap-1">
               Profil <ChevronDown size={12} />
             </span>
             <div className="absolute top-full left-0 w-56 bg-white shadow-2xl rounded-2xl border border-emerald-50 py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-              <Link href="/profil/sejarah" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Sejarah Sekolah</Link>
-              <Link href="/profil/visi-misi" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Visi & Misi</Link>
-              <Link href="/profil/struktur" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Struktur Organisasi</Link>
+              <Link href="/profil/sejarah" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 font-bold tracking-normal">Sejarah Sekolah</Link>
+              <Link href="/profil/visi-misi" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 font-bold tracking-normal">Visi & Misi</Link>
             </div>
           </div>
 
-          {/* DROPDOWN AKADEMIK */}
-          <div className="relative group py-2 cursor-pointer">
-            <span className="hover:text-emerald-600 transition-all flex items-center gap-1">
-              Akademik <ChevronDown size={12} />
-            </span>
-            <div className="absolute top-full left-0 w-56 bg-white shadow-2xl rounded-2xl border border-emerald-50 py-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-              <Link href="/akademik/kurikulum" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Kurikulum</Link>
-              <Link href="/akademik/guru" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Tenaga Pendidik</Link>
-              <Link href="/akademik/fasilitas" className="block px-6 py-2.5 hover:bg-emerald-50 hover:text-emerald-700 no-underline text-slate-500 lowercase first-letter:uppercase font-bold tracking-normal">Fasilitas Belajar</Link>
-            </div>
-          </div>
-
+          <Link href="/akademik" className="hover:text-emerald-600 transition-all no-underline">Akademik</Link>
           <Link href="/galeri" className="hover:text-emerald-600 transition-all no-underline">Galeri</Link>
-          
           <Link href="/ppdb" className="bg-emerald-600 text-white px-7 py-2.5 rounded-full no-underline hover:shadow-xl hover:shadow-emerald-200 transition-all font-black border-none">PPDB 2026</Link>
         </div>
       </nav>
@@ -60,7 +45,7 @@ export default function HomePage() {
       {/* 2. RUNNING TEXT */}
       <div className="fixed top-[68px] w-full z-40 bg-amber-400 py-1.5 overflow-hidden whitespace-nowrap shadow-sm border-b border-amber-500/20">
         <motion.div animate={{ x: ["0%", "-100%"] }} transition={{ repeat: Infinity, duration: 35, ease: "linear" }} className="inline-block text-emerald-950 font-black text-[9px] uppercase tracking-[0.2em]">
-          ✨ PENERIMAAN PESERTA DIDIK BARU SMAS NU TOBOALI TAHUN 2026/2027 TELAH DIBUKA! DAFTARKAN DIRI SEGERA ✨ &nbsp;&nbsp;&nbsp;&nbsp;
+          ✨ PENERIMAAN PESERTA DIDIK BARU SMAS NU TOBOALI TAHUN PELAJARAN 2026/2027 TELAH DIBUKA! DAFTARKAN DIRI ANDA SEGERA ✨ &nbsp;&nbsp;&nbsp;&nbsp;
         </motion.div>
       </div>
 
@@ -71,22 +56,17 @@ export default function HomePage() {
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-[9px] font-bold uppercase mb-8 border border-emerald-100">
               <Bell size={12} className="animate-bounce" /> Pendaftaran Online Dibuka
             </motion.div>
-            <motion.h2 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-8xl font-black text-slate-800 leading-[1.0] mb-8 uppercase italic tracking-tighter">
+            <h2 className="text-5xl md:text-8xl font-black text-slate-800 leading-[1.0] mb-8 uppercase italic tracking-tighter">
               Membangun <br/> <span className="text-emerald-600">Berakhlak</span> <br/> & Kompeten
-            </motion.h2>
-            <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="text-slate-500 text-sm md:text-lg mb-10 max-w-xl font-medium leading-relaxed italic">
-              "Mewujudkan generasi emas yang unggul dalam ilmu dan mulia dalam adab bersama SMAS NU Toboali."
-            </motion.p>
+            </h2>
             <Link href="/ppdb" className="bg-emerald-600 text-white px-12 py-5 rounded-2xl font-black text-sm no-underline uppercase tracking-widest shadow-2xl hover:bg-slate-800 transition-all inline-block border-none">
               Daftar Sekarang <ChevronRight className="inline ml-1" />
             </Link>
           </div>
-
           <div className="md:w-2/5 relative mt-12 md:mt-0 flex justify-center">
-            <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }} className="relative z-10 w-[350px] md:w-[500px] h-[450px] md:h-[600px]">
+            <div className="relative z-10 w-[350px] md:w-[500px] h-[450px] md:h-[600px]">
               <Image src="/foto-anak-nu.png" alt="Siswa SMAS NU" fill className="object-contain drop-shadow-2xl" priority />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[450px] h-[300px] md:h-[450px] bg-emerald-400/20 rounded-full blur-[100px] -z-10 animate-pulse"></div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -98,8 +78,7 @@ export default function HomePage() {
           <Image src="/logo-yayasan.png" alt="Yayasan" width={40} height={40} />
           <Image src="/logo-sma.png" alt="SMA" width={40} height={40} />
         </div>
-        <p className="font-black tracking-[0.4em] uppercase text-[10px] text-slate-400 mb-2">© 2026 SMAS NU TOBOALI</p>
-        <p className="text-[9px] uppercase tracking-[0.2em] text-emerald-600/60 font-black italic">Membangun Berakhlak & Kompeten</p>
+        <p className="font-black tracking-[0.4em] uppercase text-[10px] text-slate-400">© 2026 SMAS NU TOBOALI</p>
       </footer>
     </main>
   );
