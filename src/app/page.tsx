@@ -4,95 +4,60 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ChevronRight, GraduationCap, MapPin, Users, BookOpen, Camera } from 'lucide-react';
+import { GraduationCap, Book, Users, Star, ChevronRight } from 'lucide-react';
 
-export default function HomePage() {
+export default function ModernHero() {
   return (
-    <main className="min-h-screen bg-white font-sans overflow-x-hidden text-slate-900">
-      
-      {/* 1. NAVBAR */}
-      <nav className="bg-[#064E3B] text-white py-3 shadow-xl sticky top-0 z-[100] border-b border-amber-500/30">
-        <div className="container mx-auto flex justify-between items-center px-6">
-          <div className="flex items-center gap-2">
-            <div className="flex gap-1 bg-white p-1 rounded-full shadow-sm">
-              <Image src="/logo-yayasan.png" alt="Logo" width={22} height={22} />
-              <Image src="/logo-sma.png" alt="Logo" width={22} height={22} />
-            </div>
-            <h1 className="text-[10px] md:text-base font-black tracking-tighter uppercase italic">SMAS NU TOBOALI</h1>
-          </div>
-          <div className="hidden md:flex space-x-5 text-[9px] font-bold uppercase tracking-widest items-center">
-            {['Profil', 'Akademik', 'Fasilitas', 'Galeri', 'Kontak'].map((item) => (
-              <Link key={item} href={`/${item.toLowerCase()}`} className="text-white hover:text-amber-400 no-underline">{item}</Link>
-            ))}
-            <Link href="/ppdb" className="bg-amber-500 text-emerald-900 px-3 py-1 rounded-md font-black no-underline">PPDB</Link>
-          </div>
+    <main className="min-h-screen bg-[#f8fafc] overflow-hidden font-sans">
+      {/* 1. NAVBAR TRANSPARAN MODERN */}
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-emerald-100 py-4 px-10 flex justify-between items-center shadow-sm">
+        <div className="flex items-center gap-3">
+          <Image src="/logo-sma.png" alt="Logo" width={40} height={40} />
+          <h1 className="font-black text-emerald-800 tracking-tighter uppercase italic">SMAS NU TOBOALI</h1>
+        </div>
+        <div className="hidden md:flex gap-8 text-[11px] font-bold uppercase text-slate-600 tracking-widest">
+          {['Tentang', 'Akademik', 'Admisi', 'Layanan'].map(item => (
+            <Link key={item} href="#" className="hover:text-emerald-600 transition-colors no-underline">{item}</Link>
+          ))}
+          <Link href="/ppdb" className="bg-emerald-600 text-white px-5 py-2 rounded-full no-underline hover:bg-emerald-700 shadow-lg shadow-emerald-200">PPDB 2026</Link>
         </div>
       </nav>
 
-      {/* 2. RUNNING TEXT */}
-      <div className="bg-amber-500 py-1.5 overflow-hidden whitespace-nowrap border-b border-black/10 relative z-50">
-        <div className="flex">
-          <motion.div animate={{ x: ["0%", "-100%"] }} transition={{ repeat: Infinity, duration: 25, ease: "linear" }} className="inline-block text-emerald-950 font-black text-[9px] md:text-[11px] uppercase tracking-wider flex-shrink-0">
-            ✨ PPDB SMAS NU TOBOALI 2026/2027 TELAH DIBUKA! DAFTARKAN DIRI ANDA SEGERA ✨ &nbsp;&nbsp;&nbsp;&nbsp;
-          </motion.div>
-          <motion.div animate={{ x: ["0%", "-100%"] }} transition={{ repeat: Infinity, duration: 25, ease: "linear" }} className="inline-block text-emerald-950 font-black text-[9px] md:text-[11px] uppercase tracking-wider flex-shrink-0">
-            ✨ PPDB SMAS NU TOBOALI 2026/2027 TELAH DIBUKA! DAFTARKAN DIRI ANDA SEGERA ✨ &nbsp;&nbsp;&nbsp;&nbsp;
-          </motion.div>
-        </div>
-      </div>
-
-      {/* 3. HERO SECTION - TINGGI DITAMBAH BIAR TOMBOL GAK KETUTUP */}
-      <section className="relative min-h-[90vh] flex items-center justify-center text-white text-center pt-10 pb-32">
-        <div className="absolute inset-0 z-0">
-          <Image src="/gedung-sekolah.jpg" alt="Gedung" fill priority className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-[#064E3B]/90"></div>
-        </div>
+      {/* 2. HERO SECTION GAYA UNIV */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-40 px-10">
+        {/* Ornamen Melayang */}
+        <motion.div animate={{ y: [0, -20, 0] }} transition={{ repeat: Infinity, duration: 5 }} className="absolute top-40 right-[10%] opacity-20 hidden md:block text-emerald-500">
+          <GraduationCap size={120} />
+        </motion.div>
         
-        <div className="relative z-10 px-6 max-w-4xl">
-          <div className="inline-block px-3 py-1 border border-amber-500 text-amber-400 rounded-full text-[8px] font-bold uppercase mb-4 bg-black/40">Akreditasi A (UNGGUL)</div>
-          
-          <h2 className="text-4xl md:text-6xl font-black mb-6 leading-[1.1] uppercase italic drop-shadow-2xl">
-            Membangun <br/> 
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-600">Berakhlak</span> <br className="md:hidden" /> & Kompeten
-          </h2>
+        <div className="container mx-auto flex flex-col md:flex-row items-center relative z-10">
+          {/* Sisi Kiri: Teks */}
+          <div className="md:w-1/2 text-center md:text-left">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-[10px] font-bold uppercase mb-6">
+              Assalamu'alaikum Warahmatullahi Wabarakatuh
+            </motion.div>
+            <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-7xl font-black text-slate-800 leading-[1.1] mb-8 uppercase italic">
+              Membangun <br/> <span className="text-emerald-600">Berakhlak</span> <br/> & Kompeten
+            </motion.h2>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}>
+              <Link href="/ppdb" className="bg-gradient-to-r from-emerald-600 to-emerald-500 text-white px-10 py-5 rounded-2xl font-black text-sm no-underline uppercase tracking-widest shadow-2xl hover:scale-105 transition-all inline-block border-none">
+                Jelajahi SMAS NU <ChevronRight className="inline ml-1" />
+              </Link>
+            </motion.div>
+          </div>
 
-          {/* TOMBOL DAFTAR - DIBERI MARGIN BAWAH LEBIH BANYAK */}
-          <div className="mt-10 mb-10">
-            <Link href="/ppdb" className="relative z-50 inline-block bg-amber-500 text-emerald-900 px-10 py-4 rounded-xl font-black text-sm no-underline uppercase tracking-widest shadow-2xl hover:bg-white transition-all transform hover:scale-105 border-none">
-              Daftar Sekarang <ChevronRight className="inline ml-1" size={18} />
-            </Link>
+          {/* Sisi Kanan: Foto Siswa (Contoh) */}
+          <div className="md:w-1/2 mt-20 md:mt-0 relative">
+            <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.8 }}>
+              {/* Mimin bisa ganti src ini dengan foto siswa yang sudah dihapus backgroundnya */}
+              <div className="relative w-full h-[500px] flex items-center justify-center">
+                 <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-[80px] -z-10"></div>
+                 <p className="text-slate-400 font-bold italic uppercase">[ Foto Siswa Disini ]</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
-
-      {/* 4. MENU CEPAT */}
-      <section className="relative z-[60] -mt-20 max-w-6xl mx-auto px-4 pb-20">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-          {[
-            { n: "Visi Misi", h: "/profil", c: "bg-emerald-800", i: <Users size={20}/> },
-            { n: "Kurikulum", h: "/akademik", c: "bg-emerald-700", i: <GraduationCap size={20}/> },
-            { n: "Sarana", h: "/fasilitas", c: "bg-emerald-600", i: <BookOpen size={20}/> },
-            { n: "Kegiatan", h: "/galeri", c: "bg-emerald-500", i: <Camera size={20}/> },
-            { n: "Lokasi", h: "/kontak", c: "bg-amber-600", i: <MapPin size={20}/> },
-          ].map((m) => (
-            <Link key={m.n} href={m.h} className={`${m.c} flex flex-col items-center justify-center p-4 rounded-2xl text-white shadow-xl no-underline h-32 hover:-translate-y-2 transition-transform border-b-4 border-black/10`}>
-              <div className="mb-2 bg-white/10 p-2 rounded-lg">{m.i}</div>
-              <span className="font-black uppercase text-[10px] italic tracking-tighter">{m.n}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. FOOTER */}
-      <footer className="bg-[#011f18] py-16 text-center border-t-4 border-amber-500 text-white">
-        <div className="flex justify-center gap-6 mb-8 items-center">
-          <Image src="/logo-yayasan.png" alt="Logo" width={45} height={45} />
-          <div className="w-[1px] h-10 bg-white/20"></div>
-          <Image src="/logo-sma.png" alt="Logo" width={45} height={45} />
-        </div>
-        <p className="font-black tracking-[0.3em] uppercase text-[11px] mb-2">© 2026 SMAS NU TOBOALI</p>
-        <p className="text-[9px] uppercase tracking-widest text-white/40">Di bawah naungan Yayasan Pendidikan Fathmah Alwi</p>
-      </footer>
     </main>
   );
 }
