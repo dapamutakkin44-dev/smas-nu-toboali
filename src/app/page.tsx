@@ -83,7 +83,7 @@ export default function HomePage() {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
               />
               <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-emerald-950 via-emerald-900/40 to-transparent">
-                <p className="text-white font-black text-2xl tracking-tighter">Nama Kepala Sekolah, S.Pd.</p>
+                <p className="text-white font-black text-2xl tracking-tighter">Azharudin, S.Pd., M.E.</p>
                 <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Kepala Sekolah SMAS NU</p>
               </div>
             </div>
