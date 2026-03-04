@@ -25,7 +25,6 @@ export default function HomePage() {
         </div>
         
         <div className="hidden md:flex gap-8 text-[11px] font-black uppercase text-slate-500 tracking-widest items-center">
-          {/* MENU DROPDOWN PROFIL */}
           <div className="relative group py-2 cursor-pointer">
             <span className="hover:text-emerald-600 transition-all flex items-center gap-1">
               Profil <ChevronDown size={12} />
@@ -71,8 +70,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. FOOTER */}
-      <footer className="bg-white py-16 border-t border-emerald-100 text-center">
+      {/* 4. SAMBUTAN KEPALA SEKOLAH (GAYA UIN) */}
+      <section className="py-24 px-6 bg-white relative">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white rounded-[40px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(16,185,129,0.1)] flex flex-col md:flex-row items-center border border-emerald-50">
+            
+            {/* Foto Kepsek */}
+            <div className="w-full md:w-2/5 bg-emerald-600 h-[550px] relative overflow-hidden group">
+              <img 
+                src="/foto-kepsek.jpg" 
+                alt="Kepala Sekolah SMAS NU Toboali"
+                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-emerald-950 via-emerald-900/40 to-transparent">
+                <p className="text-white font-black text-2xl tracking-tighter">Nama Kepala Sekolah, S.Pd.</p>
+                <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Kepala Sekolah SMAS NU</p>
+              </div>
+            </div>
+
+            {/* Teks Sambutan */}
+            <div className="w-full md:w-3/5 p-10 md:p-20">
+              <div className="w-20 h-1.5 bg-emerald-500 mb-10 rounded-full"></div>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-8 leading-tight italic tracking-tighter">
+                "Mencetak Generasi Unggul Berlandaskan Aswaja."
+              </h2>
+              
+              <div className="space-y-6 text-slate-600 leading-relaxed text-base md:text-lg">
+                <p className="font-bold text-emerald-700 italic">
+                  Assalamu’alaikum Warahmatullahi Wabarakatuh.
+                </p>
+                <p>
+                  Puji syukur kita panjatkan ke hadirat Allah SWT. Website ini hadir sebagai jembatan informasi antara sekolah dengan masyarakat luas.
+                </p>
+                <p>
+                  Kami percaya bahwa pendidikan bukan sekadar transfer ilmu, melainkan pembentukan karakter. Di **SMAS NU Toboali**, kami membimbing siswa untuk cerdas berpikir dan mulia dalam bersikap.
+                </p>
+              </div>
+
+              <div className="mt-12 pt-10 border-t border-slate-100 flex items-center gap-5">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-2xl shadow-inner">
+                   ✍️
+                </div>
+                <div>
+                  <p className="text-slate-400 font-bold text-[10px] uppercase tracking-[0.4em]">Salam Hangat</p>
+                  <p className="text-slate-900 font-black text-base">Pimpinan Sekolah</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+      {/* 5. FOOTER */}
+      <footer className="bg-slate-50 py-16 border-t border-emerald-100 text-center">
         <div className="flex justify-center gap-6 mb-8 items-center opacity-80">
           <Image src="/logo-pendidikan.png" alt="Kemendikbud" width={40} height={40} />
           <Image src="/logo-yayasan.png" alt="Yayasan" width={40} height={40} />
