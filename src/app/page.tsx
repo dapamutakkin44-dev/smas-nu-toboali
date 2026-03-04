@@ -26,25 +26,36 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#f8fafc] overflow-x-hidden font-sans text-slate-800">
       
       {/* 1. NAVBAR - Layer paling atas */}
+      {/* 1. NAVBAR BERANDA (PASTIKAN DI FILE src/app/page.tsx) */}
       <nav className="fixed top-0 w-full z-[100] bg-white/95 backdrop-blur-xl border-b border-emerald-100 py-4 px-6 md:px-12 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-4">
+          {/* Tombol Menu */}
           <button 
             onClick={() => setIsMenuOpen(true)} 
             className="p-2 text-emerald-900 hover:bg-emerald-50 rounded-xl transition-all flex items-center gap-2 group cursor-pointer border-none bg-transparent"
           >
             <Menu size={28} />
-            <span className="hidden md:inline font-black text-[10px] tracking-[0.2em] uppercase">Menu</span>
+            <span className="hidden md:inline font-black text-[10px] tracking-[0.2em] uppercase text-emerald-900">Menu</span>
           </button>
 
+          {/* AREA LOGO TIGA SERANGKAI */}
           <div className="flex gap-2 bg-white p-1.5 rounded-xl border border-emerald-50 shadow-sm text-left">
-            <Image src="/logo-sma.png" alt="Logo SMA" width={28} height={28} className="object-contain" />
-            <div className="flex flex-col">
+            <div className="flex gap-1.5 items-center px-1">
+              <Image src="/logo-pendidikan.png" alt="Logo Pendidikan" width={22} height={22} className="object-contain" />
+              <Image src="/logo-yayasan.png" alt="Logo Yayasan" width={22} height={22} className="object-contain" />
+              <Image src="/logo-sma.png" alt="Logo SMA" width={22} height={22} className="object-contain" />
+            </div>
+            <div className="flex flex-col border-l border-emerald-100 pl-2">
               <h1 className="font-black text-emerald-900 text-[10px] md:text-sm tracking-tighter uppercase italic leading-none">SMAS NU TOBOALI</h1>
-              <span className="text-[7px] md:text-[8px] font-bold text-emerald-600 tracking-[0.2em] uppercase italic">Unggul & Islami</span>
+              <span className="text-[7px] md:text-[8px] font-bold text-emerald-600 tracking-[0.2em] uppercase italic leading-none mt-1">Unggul & Islami</span>
             </div>
           </div>
         </div>
-        <Link href="/ppdb" className="hidden md:block bg-emerald-600 text-white px-8 py-2.5 rounded-full no-underline hover:bg-emerald-700 shadow-lg font-black text-[10px] uppercase tracking-widest border-none transition-all">PPDB 2026</Link>
+
+        {/* Tombol PPDB Kanan */}
+        <Link href="/ppdb" className="hidden md:block bg-emerald-600 text-white px-8 py-2.5 rounded-full no-underline hover:bg-emerald-700 shadow-lg font-black text-[10px] uppercase tracking-widest border-none transition-all">
+          PPDB 2026
+        </Link>
       </nav>
 
       {/* 2. RUNNING TEXT - Di bawah Navbar */}
