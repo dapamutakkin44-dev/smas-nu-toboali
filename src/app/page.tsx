@@ -108,7 +108,7 @@ export default function HomePage() {
                   <div className="bg-emerald-600 p-3 rounded-xl text-white"><Users /></div>
                   <div>
                     <p className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Active Students</p>
-                    <p className="text-2xl font-black italic tracking-tighter">500+</p>
+                    <p className="text-2xl font-black italic tracking-tighter">32+</p>
                   </div>
                 </div>
               </motion.div>
