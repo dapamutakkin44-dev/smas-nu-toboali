@@ -70,32 +70,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. SAMBUTAN KEPALA SEKOLAH (GAYA UIN) */}
+      {/* 4. SAMBUTAN KEPALA SEKOLAH (GAYA UIN - FIXED EFEK) */}
       <section className="py-24 px-6 bg-white relative">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-[40px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(16,185,129,0.1)] flex flex-col md:flex-row items-center border border-emerald-50">
+          
+          {/* Tambahkan kelas 'group' di div utama ini biar efek hover jalan */}
+          <div className="group bg-white rounded-[40px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(16,185,129,0.1)] flex flex-col md:flex-row items-center border border-emerald-50 transition-all duration-500 hover:shadow-emerald-200 hover:shadow-2xl hover:-translate-y-1">
             
             {/* Foto Kepsek */}
-            <div className="w-full md:w-2/5 bg-emerald-600 h-[550px] relative overflow-hidden group">
+            <div className="w-full md:w-2/5 bg-emerald-600 h-[550px] relative overflow-hidden">
               <img 
                 src="/foto-kepsek.jpg" 
                 alt="Kepala Sekolah SMAS NU Toboali"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+                className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105"
               />
-              <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-emerald-950 via-emerald-900/40 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-emerald-950 via-emerald-900/50 to-transparent">
                 <p className="text-white font-black text-2xl tracking-tighter">Azharudin, S.Pd., M.E.</p>
                 <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Kepala Sekolah SMAS NU</p>
               </div>
             </div>
 
             {/* Teks Sambutan */}
-            <div className="w-full md:w-3/5 p-10 md:p-20">
-              <div className="w-20 h-1.5 bg-emerald-500 mb-10 rounded-full"></div>
-              <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-8 leading-tight italic tracking-tighter">
+            <div className="w-full md:w-3/5 p-10 md:p-20 relative">
+              {/* Efek Garis Emerald */}
+              <div className="w-20 h-1.5 bg-emerald-500 mb-10 rounded-full group-hover:w-32 transition-all duration-500"></div>
+              
+              <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-8 leading-tight italic tracking-tighter transition-colors group-hover:text-emerald-900">
                 "Mencetak Generasi Unggul Berlandaskan Aswaja."
               </h2>
               
-              <div className="space-y-6 text-slate-600 leading-relaxed text-base md:text-lg">
+              <div className="space-y-6 text-slate-600 leading-relaxed text-base md:text-lg transition-colors group-hover:text-slate-800">
                 <p className="font-bold text-emerald-700 italic">
                   Assalamu’alaikum Warahmatullahi Wabarakatuh.
                 </p>
@@ -108,7 +112,7 @@ export default function HomePage() {
               </div>
 
               <div className="mt-12 pt-10 border-t border-slate-100 flex items-center gap-5">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-2xl shadow-inner">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-2xl shadow-inner transition-transform group-hover:rotate-12">
                    ✍️
                 </div>
                 <div>
