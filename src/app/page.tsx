@@ -5,18 +5,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { 
-  GraduationCap, Book, Users, Star, ChevronRight, Bell, Camera, 
-  MapPin, ChevronDown, Building2, Laptop, Trophy, Home,
-  Phone, Mail, Instagram, Facebook, Send, MessageCircle,
-  ShieldCheck, Briefcase, UserCheck
+  GraduationCap, Users, Bell, ChevronRight, MapPin, 
+  MessageCircle, Instagram, Facebook, Building2, 
+  Laptop, Trophy, Home, ShieldCheck, Briefcase, ChevronDown
 } from 'lucide-react';
 
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#fcfdfd] overflow-x-hidden font-sans text-slate-800">
       
-      {/* 1. NAVBAR */}
-      <nav className="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-emerald-100 py-3 px-6 md:px-12 flex justify-between items-center shadow-sm">
+      {/* 1. NAVBAR - Clean & Luxury */}
+      <nav className="fixed top-0 w-full z-[100] bg-white/90 backdrop-blur-xl border-b border-emerald-100 py-3 px-6 md:px-12 flex justify-between items-center shadow-sm">
         <div className="flex items-center gap-3">
           <div className="flex gap-2 bg-white p-1.5 rounded-2xl border border-emerald-50 shadow-inner">
             <Image src="/logo-pendidikan.png" alt="Pusat" width={28} height={28} className="object-contain" />
@@ -47,7 +46,7 @@ export default function HomePage() {
       </nav>
 
       {/* 2. RUNNING TEXT */}
-      <div className="fixed top-[68px] w-full z-40 bg-amber-400 py-1.5 overflow-hidden whitespace-nowrap shadow-sm border-b border-amber-500/20">
+      <div className="fixed top-[68px] w-full z-40 bg-amber-400 py-1.5 overflow-hidden whitespace-nowrap border-b border-amber-500/20">
         <motion.div animate={{ x: ["0%", "-100%"] }} transition={{ repeat: Infinity, duration: 35, ease: "linear" }} className="inline-block text-emerald-950 font-black text-[9px] uppercase tracking-[0.2em]">
           ✨ PENERIMAAN PESERTA DIDIK BARU SMAS NU TOBOALI TAHUN PELAJARAN 2026/2027 TELAH DIBUKA! DAFTARKAN DIRI ANDA SEGERA ✨     
         </motion.div>
@@ -63,7 +62,7 @@ export default function HomePage() {
             <h2 className="text-5xl md:text-8xl font-black text-slate-800 leading-[1.0] mb-8 uppercase italic tracking-tighter">
               Membangun <br/> <span className="text-emerald-600">Berakhlak</span> <br/> & Kompeten
             </h2>
-            <Link href="/ppdb" className="bg-emerald-600 text-white px-12 py-5 rounded-2xl font-black text-sm no-underline uppercase tracking-widest shadow-2xl hover:bg-slate-800 transition-all inline-block border-none">
+            <Link href="/ppdb" className="bg-emerald-600 text-white px-12 py-5 rounded-2xl font-black text-sm no-underline uppercase tracking-widest shadow-2xl hover:bg-emerald-700 transition-all inline-block border-none">
               Daftar Sekarang <ChevronRight className="inline ml-1" />
             </Link>
           </div>
@@ -75,39 +74,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. SAMBUTAN KEPALA SEKOLAH */}
-      <section className="py-24 px-6 bg-white relative">
+      {/* 4. SAMBUTAN KEPALA SEKOLAH - Green & Gold Theme */}
+      <section className="py-24 px-6 bg-white relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
-          <div className="group bg-white rounded-[40px] overflow-hidden shadow-[0_32px_64px_-16px_rgba(16,185,129,0.1)] flex flex-col md:flex-row items-center border border-emerald-50 transition-all duration-500 hover:shadow-emerald-200 hover:shadow-2xl hover:-translate-y-1">
-            <div className="w-full md:w-2/5 bg-emerald-600 h-[550px] relative overflow-hidden">
+          <div className="group bg-emerald-900 rounded-[40px] overflow-hidden shadow-2xl flex flex-col md:flex-row items-center border border-emerald-800 transition-all duration-500">
+            <div className="w-full md:w-2/5 h-[550px] relative overflow-hidden bg-emerald-800">
               <img src="/foto-kepsek.jpg" alt="Azharudin, S.Pd., M.E." className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-105" />
-              <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-emerald-950 via-emerald-900/50 to-transparent">
-                <p className="text-white font-black text-2xl tracking-tighter italic">Azharudin, S.Pd., M.E., Gr.</p>
-                <p className="text-emerald-400 text-[10px] font-bold uppercase tracking-[0.3em] mt-1 text-white">Kepala Sekolah SMAS NU</p>
+              <div className="absolute bottom-0 left-0 right-0 p-10 bg-gradient-to-t from-emerald-950 to-transparent">
+                <p className="text-amber-400 font-black text-2xl tracking-tighter italic">Azharudin, S.Pd., M.E., Gr.</p>
+                <p className="text-white/70 text-[10px] font-bold uppercase tracking-[0.3em] mt-1">Kepala Sekolah SMAS NU</p>
               </div>
             </div>
-            <div className="w-full md:w-3/5 p-10 md:p-20 relative border-none">
-              <div className="w-20 h-1.5 bg-emerald-500 mb-10 rounded-full group-hover:w-32 transition-all duration-500"></div>
-              <h2 className="text-3xl md:text-4xl font-black text-slate-800 mb-8 leading-tight italic tracking-tighter transition-colors group-hover:text-emerald-900">"Mencetak Generasi Unggul Berlandaskan Aswaja."</h2>
-              <div className="space-y-6 text-slate-600 leading-relaxed text-base md:text-lg">
-                <p className="font-bold text-emerald-700 italic">Assalamu’alaikum Warahmatullahi Wabarakatuh.</p>
-                <p>Website ini hadir sebagai jembatan informasi antara sekolah dengan masyarakat luas.</p>
-                <p>Di <strong>SMAS NU Toboali</strong>, kami membimbing siswa untuk cerdas berpikir dan mulia dalam bersikap.</p>
+            <div className="w-full md:w-3/5 p-10 md:p-20 relative bg-emerald-900">
+              <div className="w-20 h-1.5 bg-amber-500 mb-10 rounded-full group-hover:w-32 transition-all duration-500"></div>
+              <h2 className="text-3xl md:text-4xl font-black text-white mb-8 leading-tight italic tracking-tighter transition-colors">"Mencetak Generasi Unggul Berlandaskan Aswaja."</h2>
+              <div className="space-y-6 text-emerald-100/80 leading-relaxed text-base md:text-lg">
+                <p className="font-bold text-amber-400 italic text-xl italic font-serif leading-relaxed">Assalamu’alaikum Warahmatullahi Wabarakatuh.</p>
+                <p>Di <strong>SMAS NU Toboali</strong>, kami membimbing siswa untuk cerdas berpikir, mandiri dalam berkarya, dan mulia dalam bersikap.</p>
               </div>
-              <div className="mt-12 pt-10 border-t border-slate-100 flex items-center gap-5 text-2xl font-black italic text-emerald-700">✍️ Azharudin</div>
+              <div className="mt-12 pt-10 border-t border-emerald-800 flex items-center gap-5 text-2xl font-black italic text-amber-500">✍️ Azharudin</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 5. STRUKTUR MANAJEMEN INTI (DATA SESUAI PDF) */}
+      {/* 5. STRUKTUR MANAJEMEN - Emerald Gold Luxury (No Uppercase for Names) */}
       <section className="py-24 px-6 bg-white relative">
         <div className="max-w-6xl mx-auto text-center mb-16">
           <p className="text-emerald-600 font-black uppercase tracking-[0.4em] text-[10px] mb-4">Leadership Team</p>
           <h2 className="text-4xl md:text-5xl font-black text-slate-800 tracking-tighter italic uppercase leading-none mb-6">
             Struktur <span className="text-emerald-600">Manajemen</span>
           </h2>
-          <div className="w-24 h-1 bg-emerald-200 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-amber-400 mx-auto rounded-full"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -117,25 +115,28 @@ export default function HomePage() {
             { nama: "Mahfudz Maladzi, S.Pd., Gr.", jabatan: "Waka Sekolah", icon: <Users /> },
             { nama: "Dapa Mutakkin, S.Pd.", jabatan: "Kepala Tata Usaha", icon: <Briefcase /> },
           ].map((staff, idx) => (
-            <div key={idx} className="bg-emerald-50/50 p-8 rounded-[32px] border border-emerald-100 text-center hover:bg-emerald-600 hover:text-white transition-all duration-500 group">
+            <div key={idx} className="bg-emerald-50/50 p-8 rounded-[32px] border border-emerald-100 text-center hover:bg-emerald-700 hover:text-white transition-all duration-500 group">
               <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 transition-transform text-emerald-600">
                 {staff.icon}
               </div>
-              <h3 className="font-black text-[12px] md:text-sm uppercase italic tracking-tighter mb-2 leading-tight h-10 flex items-center justify-center">{staff.nama}</h3>
-              <p className="text-[9px] font-bold uppercase tracking-widest opacity-60 group-hover:text-emerald-100 transition-colors">{staff.jabatan}</p>
+              {/* GELAR TIDAK UPPERCASE LAGI */}
+              <h3 className="font-black text-[13px] md:text-sm italic tracking-tighter mb-2 leading-tight h-10 flex items-center justify-center text-slate-800 group-hover:text-white">
+                {staff.nama}
+              </h3>
+              <p className="text-[9px] font-bold uppercase tracking-widest text-emerald-600 group-hover:text-amber-400 transition-colors">{staff.jabatan}</p>
             </div>
           ))}
         </div>
 
-        {/* Jargon AKHLAK (Sesuai PDF) */}
-        <div className="mt-20 max-w-4xl mx-auto py-10 border-y border-emerald-100 text-center bg-emerald-50/20 rounded-[40px]">
+        {/* Jargon AKHLAK - Gold Accent */}
+        <div className="mt-20 max-w-4xl mx-auto py-10 border-y-2 border-amber-100 text-center bg-emerald-50/30 rounded-[40px]">
           <p className="text-emerald-800 font-black italic text-2xl tracking-[0.3em] mb-3">"AKHLAK"</p>
           <p className="text-slate-500 text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] px-4 leading-loose">
-            Aqidah <span className="text-emerald-300 mx-2">•</span> 
-            Kepribadian <span className="text-emerald-300 mx-2">•</span> 
-            Harmonis <span className="text-emerald-300 mx-2">•</span> 
-            Loyalitas <span className="text-emerald-300 mx-2">•</span> 
-            Adaptif <span className="text-emerald-300 mx-2">•</span> 
+            Aqidah <span className="text-amber-500 mx-2">•</span> 
+            Kepribadian <span className="text-amber-500 mx-2">•</span> 
+            Harmonis <span className="text-amber-500 mx-2">•</span> 
+            Loyalitas <span className="text-amber-500 mx-2">•</span> 
+            Adaptif <span className="text-amber-500 mx-2">•</span> 
             Kompeten
           </p>
         </div>
@@ -145,7 +146,7 @@ export default function HomePage() {
       <section className="py-24 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto text-center mb-16">
           <p className="text-emerald-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4">Fasilitas Sekolah</p>
-          <h2 className="text-4xl md:text-6xl font-black text-slate-800 tracking-tighter italic uppercase">Sarana <span className="text-emerald-600">&</span> Prasarana</h2>
+          <h2 className="text-4xl md:text-6xl font-black text-slate-800 tracking-tighter italic uppercase text-center">Sarana <span className="text-emerald-600">&</span> Prasarana</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-4">
@@ -155,7 +156,7 @@ export default function HomePage() {
             { title: "Lap. Olahraga", desc: "Sarana pengembangan bakat dan fisik.", icon: <Trophy />, img: "/foto-lapangan.jpg" },
             { title: "Asrama Siswa", desc: "Lingkungan hunian Islami yang nyaman.", icon: <Home />, img: "/asrama.jpg" }
           ].map((item, index) => (
-            <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-2 transition-all duration-500">
+            <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:-translate-y-2 transition-all duration-500">
               <div className="h-48 bg-slate-200 relative overflow-hidden">
                 <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-all duration-700" />
               </div>
@@ -207,11 +208,6 @@ export default function HomePage() {
                   </div>
                 </Link>
               </div>
-
-              <div className="flex gap-4 mt-12">
-                <Link href="#" className="w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-emerald-600 transition-all hover:-translate-y-1 shadow-lg"><Instagram size={20} /></Link>
-                <Link href="#" className="w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-emerald-600 transition-all hover:-translate-y-1 shadow-lg"><Facebook size={20} /></Link>
-              </div>
             </div>
 
             <div className="lg:w-2/3 h-[500px] rounded-[40px] overflow-hidden shadow-2xl border-8 border-white relative group">
@@ -229,18 +225,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. FOOTER */}
-      <footer className="bg-slate-50 py-16 border-t border-emerald-100 text-center">
-        <div className="flex justify-center gap-6 mb-8 items-center opacity-80">
+      {/* 8. FOOTER - Luxury Emerald */}
+      <footer className="bg-emerald-950 py-16 border-t border-emerald-900 text-center">
+        <div className="flex justify-center gap-6 mb-8 items-center opacity-80 bg-white/10 p-4 rounded-3xl w-fit mx-auto backdrop-blur-sm">
           <Image src="/logo-pendidikan.png" alt="Kemendikbud" width={40} height={40} />
           <Image src="/logo-yayasan.png" alt="Yayasan" width={40} height={40} />
           <Image src="/logo-sma.png" alt="SMA" width={40} height={40} />
         </div>
         <div className="mb-6">
-           <h2 className="font-black text-emerald-900 text-sm tracking-tighter uppercase italic">SMAS NU TOBOALI</h2>
-           <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">Membangun Berakhlak & Kompeten</p>
+           <h2 className="font-black text-amber-400 text-sm tracking-tighter uppercase italic">SMAS NU TOBOALI</h2>
+           <p className="text-[10px] text-emerald-200/50 font-bold uppercase tracking-[0.2em]">Membangun Berakhlak & Kompeten</p>
         </div>
-        <p className="font-black tracking-[0.4em] uppercase text-[10px] text-slate-300">© 2026 SMAS NU TOBOALI</p>
+        <p className="font-black tracking-[0.4em] uppercase text-[10px] text-emerald-900">© 2026 SMAS NU TOBOALI</p>
       </footer>
 
     </main>
