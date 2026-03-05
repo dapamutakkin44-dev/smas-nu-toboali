@@ -7,26 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Menu, X, Star, MapPin, MessageCircle, Building,
   Laptop, BookOpen, Home, History, Target,
-  ChevronRight, Trophy, Instagram, Facebook, Youtube, Users, Camera
+  ChevronRight, Trophy, Instagram, Facebook, Users, Cloud, Award
 } from 'lucide-react';
 
-export default function SMASNUToboaliFinal() {
+export default function SMASNUToboaliMasterFinal() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // DATA FASILITAS
-  const fasilitas = [
-    { nama: "Gedung Sekolah", icon: <Building size={24} />, deskripsi: "Gedung belajar nyaman" },
-    { nama: "Lab Komputer", icon: <Laptop size={24} />, deskripsi: "Fasilitas IT modern" },
-    { nama: "Asrama Siswa", icon: <Home size={24} />, deskripsi: "Hunian islami & aman" },
-    { nama: "Perpustakaan", icon: <BookOpen size={24} />, deskripsi: "Koleksi buku lengkap" },
-  ];
-
-  // DATA GALERI
-  const galeri = [
-    { img: "/sma-1.jpg", title: "Kegiatan Siswa" },
-    { img: "/sma-2.jpg", title: "Praktikum Siswa" },
-    { img: "/sma-3.jpg", title: "Juara PAI FAIR" },
-  ];
 
   return (
     <main className="min-h-screen bg-[#f8fafc] overflow-x-hidden font-sans text-slate-800 text-left">
@@ -102,14 +87,19 @@ export default function SMASNUToboaliFinal() {
 
       {/* 5. PRASARANA */}
       <section className="py-24 px-6 bg-emerald-50/30 text-left">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto text-left">
           <h2 className="text-4xl font-black text-slate-800 mb-16 italic uppercase tracking-tighter">Prasarana <span className="text-emerald-600">Terbaik</span></h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {fasilitas.map((f, i) => (
+            {[
+              { nama: "Gedung Sekolah", icon: <Building size={24} />, desk: "Gedung belajar nyaman" },
+              { nama: "Lab Komputer", icon: <Laptop size={24} />, desk: "Fasilitas IT modern" },
+              { nama: "Asrama Siswa", icon: <Home size={24} />, desk: "Hunian islami & aman" },
+              { nama: "Perpustakaan", icon: <BookOpen size={24} />, desk: "Koleksi buku lengkap" },
+            ].map((f, i) => (
               <div key={i} className="bg-white p-8 rounded-[32px] border border-emerald-100 shadow-sm hover:shadow-xl transition-all group">
                 <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all">{f.icon}</div>
                 <h3 className="font-black text-sm italic text-slate-800 mb-1 uppercase leading-none">{f.nama}</h3>
-                <p className="text-[10px] font-bold text-slate-400 uppercase italic leading-none">{f.deskripsi}</p>
+                <p className="text-[10px] font-bold text-slate-400 uppercase italic leading-none">{f.desk}</p>
               </div>
             ))}
           </div>
@@ -119,46 +109,46 @@ export default function SMASNUToboaliFinal() {
       {/* 6. GALERI KEGIATAN */}
       <section className="py-24 px-6 bg-white text-left">
         <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="text-4xl font-black text-slate-900 italic tracking-tighter uppercase">Galeri <span className="text-emerald-600">Siswa</span></h2>
-          </div>
+          <h2 className="text-4xl font-black text-slate-900 italic tracking-tighter uppercase mb-16">Galeri <span className="text-emerald-600">Siswa</span></h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {galeri.map((item, i) => (
+            {["/sma-1.jpg", "/sma-2.jpg", "/sma-3.jpg"].map((img, i) => (
               <div key={i} className="h-[350px] rounded-[32px] overflow-hidden relative group shadow-lg">
-                <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/80 p-8 flex items-end">
-                  <p className="text-white font-black italic uppercase tracking-tighter text-xl">{item.title}</p>
-                </div>
+                <img src={img} alt="Galeri" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7. WARTA PRESTASI NASIONAL (BERITA BARU) */}
+      {/* 7. UPDATE INFORMASI: WARTA PRESTASI NASIONAL */}
       <section className="py-24 px-6 bg-slate-900 text-left border-y-8 border-amber-400">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-12 items-center">
             <div className="md:w-1/2">
-               <div className="inline-block bg-amber-400 text-emerald-950 px-4 py-1.5 rounded-lg font-black text-[10px] uppercase tracking-widest mb-6 italic">Prestasi Teranyar 2025</div>
-               <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase text-white leading-none mb-8">Dahsyat! Nabila Alfira <span className="text-emerald-400">Tembus Nasional</span> Juara Pidato PAI</h2>
-               <p className="text-emerald-100/70 text-lg italic leading-relaxed mb-8">SMAS NU Toboali mengukir sejarah! Nabila Alfira berhasil meraih Juara 1 Pidato PAI FAIR tingkat Kabupaten dan kini melaju ke kancah Nasional.</p>
-               <Link href="/berita" className="inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest no-underline hover:bg-amber-400 transition-all">Baca Berita Lengkap <ChevronRight size={16} /></Link>
+               <div className="inline-block bg-amber-400 text-emerald-950 px-4 py-1.5 rounded-lg font-black text-[10px] uppercase tracking-widest mb-6 italic">Update Informasi Terbaru</div>
+               <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter uppercase text-white leading-none mb-8">Dahsyat! Nabila Alfira <span className="text-emerald-400">Juara 1 Nasional</span> Pidato PAI FAIR</h2>
+               <p className="text-emerald-100/70 text-lg italic leading-relaxed mb-8">
+                 Membanggakan! Siswi SMAS NU Toboali berhasil menyabet Juara 1 tingkat Kabupaten dan kini siap mengharumkan nama Bangka Selatan di kancah Nasional.
+               </p>
+               <Link href="/berita" className="inline-flex items-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-2xl font-black text-[10px] uppercase tracking-widest no-underline hover:bg-amber-400 transition-all shadow-xl">
+                 Buka Warta Lengkap <ChevronRight size={16} />
+               </Link>
             </div>
-            <div className="md:w-1/2 h-[400px] rounded-[40px] overflow-hidden border-4 border-emerald-500 shadow-2xl">
-               <img src="/sma-3.jpg" className="w-full h-full object-cover" alt="Prestasi Nasional" />
+            <div className="md:w-1/2 h-[400px] rounded-[40px] overflow-hidden border-4 border-emerald-500 shadow-2xl relative group">
+               <img src="/sma-3.jpg" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Prestasi Nasional" />
+               <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/60 to-transparent"></div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 8. GOOGLE MAPS FULL */}
+      {/* 8. GOOGLE MAPS */}
       <section className="w-full h-[400px] relative bg-slate-200 border-t-8 border-emerald-600">
-        <div className="absolute top-0 left-0 z-10 bg-emerald-600 text-white px-8 py-3 rounded-br-[32px] font-black italic uppercase tracking-widest text-xs">Lokasi SMAS NU Toboali 📍</div>
+        <div className="absolute top-0 left-0 z-10 bg-emerald-600 text-white px-8 py-3 rounded-br-[32px] font-black italic uppercase tracking-widest text-xs shadow-xl">Lokasi SMAS NU Toboali 📍</div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15938.826244434254!2d106.444!3d-3.012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwMDAnNDMuMiJTIDEwNsKwMjYnMzguNCJF!5e0!3m2!1sid!2sid!4v1700000000000" width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy" className="grayscale hover:grayscale-0 transition-all duration-1000"></iframe>
       </section>
 
-      {/* 9. FOOTER - SOSMED APP LINKS */}
+      {/* 9. FOOTER FINAL */}
       <footer className="bg-white pt-20 pb-12 border-t border-slate-100 text-left">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
           <div className="text-left">
@@ -166,10 +156,9 @@ export default function SMASNUToboaliFinal() {
                <Image src="/logo-sma.png" alt="S" width={40} height={40} />
                <h4 className="font-black italic uppercase text-emerald-900 tracking-tighter text-2xl mb-0">SMAS NU TOBOALI</h4>
             </div>
-            <p className="text-slate-500 text-sm font-bold italic leading-relaxed mb-8 max-w-md">Mewujudkan generasi yang Unggul dalam Prestasi dan Berkarakter Islami di Bangka Selatan.</p>
+            <p className="text-slate-500 text-sm font-bold italic leading-relaxed mb-8 max-w-md italic">Unggul dalam Prestasi, Berkarakter Islami, Berwawasan Kebangsaan.</p>
             <div className="flex flex-wrap gap-4">
               <a href="https://www.instagram.com/official.smasnutoboali/" target="_blank" className="bg-pink-600 text-white px-6 py-2 rounded-xl font-black text-[9px] uppercase tracking-widest no-underline shadow-lg hover:scale-110 transition-all">Instagram</a>
-              <a href="https://www.facebook.com/Smas NU toboali" target="_blank" className="bg-blue-700 text-white px-6 py-2 rounded-xl font-black text-[9px] uppercase tracking-widest no-underline shadow-lg hover:scale-110 transition-all">Facebook</a>
               <a href="https://www.tiktok.com/@official.smasnu.toboali" target="_blank" className="bg-black text-white px-6 py-2 rounded-xl font-black text-[9px] uppercase tracking-widest no-underline shadow-lg hover:scale-110 transition-all">TikTok</a>
               <a href="https://wa.me/6287813180362" target="_blank" className="bg-emerald-600 text-white px-6 py-2 rounded-xl font-black text-[9px] uppercase tracking-widest no-underline shadow-lg hover:scale-110 transition-all">WhatsApp</a>
             </div>
@@ -178,6 +167,7 @@ export default function SMASNUToboaliFinal() {
             <h4 className="font-black italic uppercase text-emerald-900 text-xl underline decoration-amber-400 decoration-4 underline-offset-8">Alamat & Kontak</h4>
             <div className="flex items-start gap-4"><MapPin className="text-emerald-600 shrink-0" size={24} /><p className="text-sm font-bold text-slate-500 italic">Jl. Desa Rias, Kec. Toboali, Kab. Bangka Selatan, 33783</p></div>
             <div className="flex items-center gap-4 text-sm font-black text-emerald-900 italic"><MessageCircle className="text-emerald-600 shrink-0" size={24} /><span>0878-1318-0362 (Admin Dapa)</span></div>
+            <div className="flex items-center gap-4 text-sm font-black text-emerald-900 italic"><Cloud className="text-emerald-600 shrink-0" size={24} /><span>smasnutoboali@gmail.com</span></div>
           </div>
         </div>
         <div className="text-center pt-10 border-t border-slate-50 px-6">
@@ -185,29 +175,42 @@ export default function SMASNUToboaliFinal() {
         </div>
       </footer>
 
-      {/* 10. DRAWER MENU */}
+      {/* 10. DRAWER MENU (HOVER FIXED) */}
       <AnimatePresence>
         {isMenuOpen && (
           <>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setIsMenuOpen(false)} className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[110]" />
             <motion.div initial={{ x: '-100%' }} animate={{ x: 0 }} exit={{ x: '-100%' }} className="fixed top-0 left-0 h-full w-[300px] md:w-[420px] bg-emerald-900 z-[120] shadow-2xl p-8 flex flex-col text-left">
-              <div className="flex justify-between items-center mb-12">
-                <p className="font-black italic text-xl tracking-tighter text-white uppercase mb-0">Menu Navigasi</p>
+              <div className="flex justify-between items-center mb-10">
+                <p className="font-black italic text-xl tracking-tighter text-white uppercase mb-0">Navigasi Utama</p>
                 <button onClick={() => setIsMenuOpen(false)} className="text-emerald-200 bg-transparent border-none cursor-pointer"><X size={32} /></button>
               </div>
-              <div className="space-y-6 text-left">
-                <Link onClick={() => setIsMenuOpen(false)} href="/" className="block text-white text-3xl font-black italic no-underline hover:text-amber-400 uppercase tracking-tighter">Beranda</Link>
-                <Link onClick={() => setIsMenuOpen(false)} href="/berita" className="block text-white text-3xl font-black italic no-underline hover:text-amber-400 uppercase tracking-tighter">Berita & Prestasi</Link>
-                <Link onClick={() => setIsMenuOpen(false)} href="/ppdb" className="block text-white text-3xl font-black italic no-underline hover:text-amber-400 uppercase tracking-tighter">PPDB 2026</Link>
-                <div className="pt-6 border-t border-emerald-800 space-y-4">
-                  <Link href="/profil/sejarah" className="block text-emerald-200 no-underline font-bold italic uppercase tracking-widest text-sm">Sejarah Sekolah</Link>
-                  <Link href="/profil/visi-misi" className="block text-emerald-200 no-underline font-bold italic uppercase tracking-widest text-sm">Visi & Misi</Link>
+              <div className="space-y-2">
+                <Link onClick={() => setIsMenuOpen(false)} href="/" className="flex items-center justify-between text-white text-2xl font-black italic no-underline hover:text-amber-400 py-2 uppercase tracking-tighter transition-all group">Beranda <ChevronRight className="group-hover:translate-x-2 transition-transform"/></Link>
+                
+                <div className="pt-6 pb-2 border-t border-emerald-800/50">
+                  <p className="text-[10px] font-black text-emerald-400 tracking-[0.4em] uppercase mb-4">Profil Sekolah</p>
+                  <div className="flex flex-col gap-4 ml-2">
+                    <Link onClick={() => setIsMenuOpen(false)} href="/profil/sejarah" className="text-emerald-100 no-underline font-bold text-lg flex items-center gap-4 uppercase italic tracking-tighter transition-all hover:text-amber-400 hover:translate-x-2 group">
+                      <div className="p-2 bg-emerald-800 rounded-lg group-hover:bg-amber-400 transition-colors"><History size={18} className="group-hover:text-emerald-900" /></div> Sejarah
+                    </Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/profil/visi-misi" className="text-emerald-100 no-underline font-bold text-lg flex items-center gap-4 uppercase italic tracking-tighter transition-all hover:text-amber-400 hover:translate-x-2 group">
+                      <div className="p-2 bg-emerald-800 rounded-lg group-hover:bg-amber-400 transition-colors"><Target size={18} className="group-hover:text-emerald-900" /></div> Visi & Misi
+                    </Link>
+                    <Link onClick={() => setIsMenuOpen(false)} href="/profil/struktur" className="text-emerald-100 no-underline font-bold text-lg flex items-center gap-4 uppercase italic tracking-tighter transition-all hover:text-amber-400 hover:translate-x-2 group">
+                      <div className="p-2 bg-emerald-800 rounded-lg group-hover:bg-amber-400 transition-colors"><Users size={18} className="group-hover:text-emerald-900" /></div> Struktur
+                    </Link>
+                  </div>
                 </div>
+
+                <Link onClick={() => setIsMenuOpen(false)} href="/berita" className="flex items-center justify-between text-white text-2xl font-black italic no-underline hover:text-amber-400 py-4 uppercase tracking-tighter transition-all group border-t border-emerald-800/50 mt-4">Berita & Prestasi <ChevronRight className="group-hover:translate-x-2 transition-transform"/></Link>
+                <Link onClick={() => setIsMenuOpen(false)} href="/ppdb" className="mt-8 block bg-amber-400 text-emerald-950 p-5 rounded-2xl text-center font-black text-lg no-underline shadow-xl uppercase italic tracking-widest hover:bg-white transition-all">Daftar PPDB 2026</Link>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
+
     </main>
   );
 }
