@@ -1,152 +1,84 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronLeft, Send, CheckCircle2 } from 'lucide-react';
-import { useForm, ValidationError } from '@formspree/react';
+import Link from 'next/link';
+import { ChevronLeft, CheckCircle2, DollarSign, ClipboardList, Phone } from 'lucide-react';
 
 export default function PPDBPage() {
-  const [state, handleSubmit] = useForm("xvzberpk");
-
-  if (state.succeeded) {
-    return (
-      <main className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
-        <div className="bg-white p-12 rounded-[40px] shadow-2xl text-center max-w-md border border-emerald-100">
-          <div className="flex justify-center mb-6 text-emerald-600">
-            <CheckCircle2 size={80} />
-          </div>
-          <h2 className="text-3xl font-black italic text-slate-900 uppercase tracking-tighter mb-4">BERHASIL!</h2>
-          <p className="text-slate-500 font-medium mb-8">Data pendaftaran sudah masuk ke email sekolah. Panitia akan segera menghubungi Anda.</p>
-          <Link href="/" className="bg-emerald-600 text-white px-8 py-4 rounded-2xl font-black no-underline uppercase tracking-widest inline-block hover:bg-emerald-700 transition-all shadow-lg border-none">Kembali ke Beranda</Link>
-        </div>
-      </main>
-    );
-  }
+  const biaya = [
+    { item: "Formulir", harga: "Rp 150.000" },
+    { item: "Infaq Pondok", harga: "Rp 2.000.000" },
+    { item: "Uang Sekolah", harga: "Rp 200.000" },
+    { item: "Uang Makan", harga: "Rp 550.000" },
+    { item: "Seragam Sekolah", harga: "Rp 500.000" },
+    { item: "Perlengkapan Pondok", harga: "Rp 250.000" },
+    { item: "Kitab & Al-Qur'an", harga: "Rp 280.000" },
+    { item: "Sewa Lemari", harga: "Rp 400.000" },
+    { item: "Uang Kesehatan", harga: "Rp 15.000" },
+    { item: "Sampul Raport", harga: "Rp 50.000" },
+    { item: "Uang Kegiatan", harga: "Rp 150.000" },
+  ];
 
   return (
-    <main className="min-h-screen bg-[#f8fafc] text-slate-900 font-sans leading-relaxed">
-      
-      {/* 1. NAVBAR PERBAIKAN - LOGO LENGKAP & BISA DIKLIK */}
-      <nav className="sticky top-0 z-[100] bg-white/95 backdrop-blur-md border-b border-slate-200 py-4 px-6 md:px-12 flex justify-between items-center shadow-sm">
-        <Link href="/" className="flex items-center gap-3 no-underline group">
-          <div className="flex gap-1.5 items-center">
-            <Image src="/logo-pendidikan.png" alt="Pendidikan" width={24} height={24} className="object-contain" />
-            <Image src="/logo-yayasan.png" alt="Yayasan" width={24} height={24} className="object-contain" />
-            <Image src="/logo-sma.png" alt="SMA" width={24} height={24} className="object-contain" />
-          </div>
-          <div className="flex flex-col border-l-2 border-emerald-100 pl-3">
-            <span className="font-black text-emerald-900 tracking-tighter italic uppercase text-xs md:text-sm leading-none">SMAS NU TOBOALI</span>
-            <span className="text-[7px] md:text-[9px] font-bold text-emerald-600 tracking-widest uppercase">Penerimaan Siswa Baru</span>
-          </div>
+    <main className="min-h-screen bg-[#f8fafc] text-left font-sans">
+      <nav className="p-6 bg-white border-b flex justify-between items-center sticky top-0 z-50">
+        <Link href="/" className="flex items-center gap-2 no-underline text-emerald-900 font-black uppercase text-xs italic">
+          <ChevronLeft size={18} /> Kembali ke Beranda
         </Link>
-        
-        <Link href="/" className="text-slate-400 hover:text-emerald-600 font-black text-[9px] md:text-[10px] uppercase tracking-widest no-underline flex items-center gap-2 transition-all">
-          <ChevronLeft size={16} /> <span className="hidden md:inline">Kembali Ke</span> Beranda
-        </Link>
+        <Image src="/logo-sma.png" alt="Logo" width={30} height={30} />
       </nav>
 
-      <div className="max-w-6xl mx-auto py-10 md:py-16 px-6">
-        
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-5xl font-black text-slate-900 uppercase italic tracking-tighter mb-4">
-            GABUNG BERSAMA <span className="text-emerald-600">KELUARGA NU</span>
-          </h1>
-          <div className="w-20 h-1.5 bg-amber-400 mx-auto rounded-full mb-4"></div>
-          <p className="text-slate-500 font-medium max-w-2xl mx-auto italic text-sm md:text-base">Wujudkan cita-citamu dengan pendidikan yang unggul dalam IPTEK dan kuat dalam IMTAK.</p>
+      <header className="py-20 bg-emerald-900 text-white px-6">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none mb-4">Penerimaan Siswa Baru <br/><span className="text-amber-400 text-4xl md:text-6xl">Tahun 2026/2027</span></h1>
+          <p className="text-emerald-200 font-bold italic uppercase tracking-widest text-sm">Unggul dalam Prestasi, Berkarakter Islami</p>
         </div>
+      </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          
-          {/* INFO BOX */}
-          <div className="lg:col-span-1 space-y-6">
-            <div className="bg-white p-8 rounded-[32px] shadow-xl border-t-8 border-emerald-600">
-              <h3 className="font-black text-lg uppercase italic mb-6 text-slate-800 border-b border-slate-100 pb-2">Persyaratan</h3>
-              <ul className="space-y-4">
-                {["FC Ijazah/SKL Terlegalisir", "FC Akta Kelahiran", "FC Kartu Keluarga", "Pas Foto Terbaru"].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-sm font-bold text-slate-600">
-                    <CheckCircle2 size={18} className="text-emerald-500 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-emerald-900 p-8 rounded-[32px] text-white shadow-2xl relative overflow-hidden group">
-               <div className="relative z-10">
-                 <h3 className="font-black text-lg uppercase italic mb-3">Butuh Bantuan?</h3>
-                 <p className="text-emerald-200 text-xs font-medium leading-relaxed mb-6 italic">Jika ada kendala saat mengisi formulir, silakan hubungi Admin Dapa melalui WhatsApp.</p>
-                 <a href="https://wa.me/6287813180362" target="_blank" className="inline-block bg-amber-400 text-emerald-950 px-6 py-3 rounded-xl font-black text-[10px] uppercase tracking-widest no-underline hover:bg-white transition-all">Chat Admin Sekarang</a>
-               </div>
-               <Send className="absolute -right-6 -bottom-6 opacity-10 group-hover:scale-110 transition-transform duration-700" size={120} />
-            </div>
+      <section className="py-20 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* SYARAT & BIAYA */}
+        <div className="space-y-8">
+          <div className="bg-white p-10 rounded-[40px] shadow-xl border-t-8 border-emerald-600">
+            <h3 className="text-2xl font-black italic uppercase mb-8 flex items-center gap-3"><ClipboardList className="text-emerald-600" /> Syarat Masuk</h3>
+            <ul className="space-y-3 p-0 list-none">
+              {["Isi Formulir Online", "FC Akta & KK", "FC KTP Orang Tua", "Pas Foto 3x4 (4 Lembar)", "FC Rapor Terakhir", "Wajib Tinggal di Asrama"].map((s, i) => (
+                <li key={i} className="flex items-center gap-3 text-sm font-bold italic text-slate-600"><CheckCircle2 size={18} className="text-emerald-500" /> {s}</li>
+              ))}
+            </ul>
           </div>
 
-          {/* FORM FORMULIR */}
-          <div className="lg:col-span-2">
-            <div className="bg-white p-8 md:p-12 rounded-[40px] shadow-2xl border border-emerald-50 relative">
-              <div className="absolute top-0 right-10 bg-emerald-600 text-white px-4 py-2 rounded-b-xl font-black text-[10px] uppercase tracking-widest">Tahun Ajaran 2026/2027</div>
-              
-              <h2 className="text-2xl font-black uppercase italic text-slate-900 mb-8 flex items-center gap-3">
-                <span className="w-8 h-8 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-sm not-italic font-black italic">1</span>
-                Data Diri Calon Siswa
-              </h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-emerald-700 mb-2 italic ml-2">Nama Lengkap</label>
-                    <input name="nama" type="text" required 
-                      className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white outline-none transition-all font-bold text-base shadow-sm"
-                      placeholder="Nama Lengkap" />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-emerald-700 mb-2 italic ml-2">Asal Sekolah</label>
-                    <input name="asal_sekolah" type="text" required 
-                      className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white outline-none transition-all font-bold text-base shadow-sm"
-                      placeholder="SMP / MTs" />
-                  </div>
+          <div className="bg-slate-900 text-white p-10 rounded-[40px] shadow-2xl border-t-8 border-amber-400">
+            <h3 className="text-2xl font-black italic uppercase mb-8 flex items-center gap-3"><DollarSign className="text-amber-400" /> Rincian Biaya</h3>
+            <div className="space-y-2">
+              {biaya.map((b, i) => (
+                <div key={i} className="flex justify-between border-b border-slate-800 pb-1 text-[11px] font-bold uppercase italic tracking-tighter opacity-80">
+                  <span>{b.item}</span><span>{b.harga}</span>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-emerald-700 mb-2 italic ml-2">No. WhatsApp Aktif</label>
-                    <input name="whatsapp" type="tel" required 
-                      className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white outline-none transition-all font-bold text-base shadow-sm"
-                      placeholder="08..." />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-emerald-700 mb-2 italic ml-2">Email</label>
-                    <input name="email" type="email" required 
-                      className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white outline-none transition-all font-bold text-base shadow-sm"
-                      placeholder="email@pribadi.com" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-emerald-700 mb-2 italic ml-2">Alamat Tinggal</label>
-                  <textarea name="alamat" required 
-                    className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl px-6 py-4 text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white outline-none transition-all font-bold text-base shadow-sm min-h-[120px]"
-                    placeholder="Alamat Lengkap" />
-                </div>
-
-                <button 
-                  type="submit" 
-                  disabled={state.submitting}
-                  className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-6 rounded-2xl shadow-xl shadow-emerald-200 transition-all flex items-center justify-center gap-3 uppercase tracking-[0.2em] italic disabled:opacity-50 border-none cursor-pointer mt-4"
-                >
-                  {state.submitting ? "PROSES PENGIRIMAN..." : "KIRIM FORM PENDAFTARAN"} <Send size={20} />
-                </button>
-              </form>
+              ))}
+              <div className="flex justify-between pt-6 border-t-2 border-amber-400 mt-4 font-black text-xl italic uppercase">
+                <span>Total</span><span className="text-amber-400">Rp 4.545.000</span>
+              </div>
             </div>
           </div>
-
         </div>
-      </div>
 
-      <footer className="py-12 border-t border-slate-100 text-center">
-        <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em] italic">SMAS NU Toboali • Akhlakul Karimah</p>
-      </footer>
+        {/* FORMULIR */}
+        <div className="bg-white p-10 md:p-12 rounded-[40px] shadow-2xl border border-emerald-50 h-fit sticky top-24">
+          <h3 className="text-3xl font-black italic uppercase mb-8">Formulir <span className="text-emerald-600">Pendaftaran</span></h3>
+          <form className="space-y-6">
+            <div>
+              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">Nama Lengkap Calon Siswa</label>
+              <input type="text" className="w-full bg-slate-50 border-2 border-slate-100 p-4 rounded-2xl outline-none focus:border-emerald-600 font-bold italic" placeholder="Contoh: Ahmad Fauzan" />
+            </div>
+            <div>
+              <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 block mb-2">WhatsApp Orang Tua</label>
+              <input type="text" className="w-full bg-slate-50 border-2 border-slate-100 p-4 rounded-2xl outline-none focus:border-emerald-600 font-bold italic" placeholder="08..." />
+            </div>
+            <button className="w-full bg-emerald-600 text-white py-5 rounded-2xl font-black uppercase italic tracking-widest shadow-xl hover:bg-emerald-700 transition-all">Kirim Data Sekarang</button>
+          </form>
+        </div>
+      </section>
     </main>
   );
 }
