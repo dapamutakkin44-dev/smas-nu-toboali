@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* JURUS PAMUNGKAS: Paksa semua gambar di navbar supaya nggak bisa gede */
+nav img {
+  width: auto !important;
+  max-width: none !important;
+  max-height: 100% !important;
+  height: auto !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #faf6ef;
+}
