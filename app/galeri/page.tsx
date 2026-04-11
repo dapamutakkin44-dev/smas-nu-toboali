@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Camera, Filter, Calendar, Award, 
-  Users, BookOpen, ChevronRight, Home
+  Users, BookOpen, ChevronRight, Home, Share2
 } from 'lucide-react';
 import Link from 'next/link';
 
@@ -14,9 +14,40 @@ export default function GaleriPage() {
 
   useEffect(() => setMounted(true), []);
 
-  const categories = ['Semua', 'Akademik', 'Lomba', 'Prestasi', 'Guru', 'Nasional'];
+  // Update Kategori: Tambah 'Sosialisasi'
+  const categories = ['Semua', 'Sosialisasi', 'Akademik', 'Lomba', 'Prestasi', 'Guru', 'Nasional'];
 
   const dataGaleri = [
+    // --- KEGIATAN BARU (AKREDITASI) ---
+    { 
+      img: "kegiatan1.jpeg", 
+      tag: "Sosialisasi", 
+      title: "Berbagi Pengalaman Akreditasi (Sesi 1)", 
+      desc: "SMAS NU Toboali mendampingi dan berbagi strategi persiapan dokumen akreditasi kepada sekolah baru.",
+      date: "2026"
+    },
+    { 
+      img: "kegiatan2.jpeg", 
+      tag: "Sosialisasi", 
+      title: "Bedah Instrumen Akreditasi", 
+      desc: "Diskusi mendalam mengenai pemenuhan standar mutu pendidikan bersama perwakilan 3 sekolah mitra.",
+      date: "2026"
+    },
+    { 
+      img: "kegiatan3.jpeg", 
+      tag: "Sosialisasi", 
+      title: "Sharing Session Tata Kelola Administrasi", 
+      desc: "Proses transfer pengetahuan teknis sebelum pelaksanaan visitasi akreditasi di lapangan.",
+      date: "2026"
+    },
+    { 
+      img: "kegiatan4.jpeg", 
+      tag: "Sosialisasi", 
+      title: "Sinergi Majukan Pendidikan Basel", 
+      desc: "Foto bersama usai kegiatan sosialisasi akreditasi untuk memperkuat kolaborasi antar sekolah.",
+      date: "2026"
+    },
+    // --- DATA LAMA ---
     { 
       img: "XII-TKA.jpg", 
       tag: "Akademik", 
@@ -155,7 +186,9 @@ export default function GaleriPage() {
                   borderRadius: '40px',
                   overflow: 'hidden',
                   boxShadow: '0 15px 35px rgba(0,0,0,0.05)',
-                  border: '1px solid #eee'
+                  border: '1px solid #eee',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}
               >
                 {/* Image Container */}
@@ -177,7 +210,7 @@ export default function GaleriPage() {
                 </div>
 
                 {/* Content */}
-                <div style={{ padding: '30px' }}>
+                <div style={{ padding: '30px', flex: 1 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#666', fontSize: '12px', marginBottom: '10px' }}>
                     <Calendar size={14} /> {item.date}
                   </div>
@@ -196,24 +229,28 @@ export default function GaleriPage() {
 
       {/* 4. CALL TO ACTION */}
       <section style={{ textAlign: 'center', padding: '50px 5%' }}>
-         <div style={{ 
-           background: '#0d4f3c', 
-           padding: '60px', 
-           borderRadius: '50px', 
-           color: 'white',
-           maxWidth: '800px',
-           margin: '0 auto'
-         }}>
+          <div style={{ 
+            background: '#0d4f3c', 
+            padding: '60px', 
+            borderRadius: '50px', 
+            color: 'white',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
             <Camera size={50} color="#c9a227" style={{ marginBottom: '20px' }} />
             <h2 style={{ fontWeight: '900' }}>Punya Foto Kegiatan?</h2>
             <p style={{ opacity: 0.7, marginBottom: '30px' }}>Kirimkan dokumentasi kegiatan ekstrakurikuler atau kelasmu ke tim jurnalistik sekolah.</p>
-            <button style={{ 
-              background: '#c9a227', border: 'none', padding: '15px 40px', 
-              borderRadius: '15px', fontWeight: '900', cursor: 'pointer' 
-            }}>
+            <button 
+              onClick={() => window.open('https://wa.me/6283175213223', '_blank')}
+              style={{ 
+                background: '#c9a227', border: 'none', padding: '15px 40px', 
+                borderRadius: '15px', fontWeight: '900', cursor: 'pointer',
+                color: '#0d4f3c'
+              }}
+            >
               KIRIM FOTO
             </button>
-         </div>
+          </div>
       </section>
     </div>
   );

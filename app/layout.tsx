@@ -36,9 +36,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <nav style={{ height: '75px', backgroundColor: '#0d4f3c', borderBottom: '4px solid #c9a227', display: 'flex', alignItems: 'center', padding: '0 5%', justifyContent: 'space-between' }}>
             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
               <div style={{ backgroundColor: 'white', padding: '5px 12px', borderRadius: '10px', display: 'flex', gap: '8px', alignItems: 'center' }}>
-                <img src="/logo-pendidikan.png" style={{ height: '28px' }} alt="Pendidikan" />
-                <img src="/logo-yayasan.png" style={{ height: '28px' }} alt="Yayasan" />
-                <img src="/logo-sma.png" style={{ height: '32px' }} alt="SMA" />
+                {/* FIX: Tambah "/" di depan agar logo tidak hilang saat pindah halaman */}
+                <img src="/logo-pendidikan.png" style={{ height: '28px' }} alt="Pendidikan" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                <img src="/logo-yayasan.png" style={{ height: '28px' }} alt="Yayasan" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                <img src="/logo-sma.png" style={{ height: '32px' }} alt="SMA" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
               </div>
               <div style={{ color: 'white' }}>
                 <div style={{ fontWeight: '900', fontSize: '18px', fontStyle: 'italic', lineHeight: 1 }}>SMAS NU TOBOALI</div>

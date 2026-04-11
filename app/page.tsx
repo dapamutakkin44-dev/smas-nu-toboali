@@ -1,18 +1,25 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { 
   BookOpen, Star, ShieldCheck, Heart, Award, Bell, 
   GraduationCap, School, Zap, Facebook, Instagram, 
   MapPin, Trophy, Target, ArrowRight, Mail, Library,
-  Coffee, Wifi, Microscope, Users
+  Microscope, Wifi, X, PartyPopper
 } from 'lucide-react';
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [showPopup, setShowPopup] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    // Pop-up muncul 1.5 detik setelah web dimuat agar tidak kaget
+    const timer = setTimeout(() => setShowPopup(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
@@ -56,6 +63,59 @@ export default function HomePage() {
   return (
     <div style={{ backgroundColor: '#faf6ef', minHeight: '100vh', overflowX: 'hidden' }}>
       
+      {/* --- POP-UP PENGUMUMAN PTKIN --- */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={overlayStyle}
+          >
+            <motion.div 
+              initial={{ scale: 0.5, y: 100, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.5, y: 100, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              style={modalStyle}
+            >
+              {/* Tombol Close */}
+              <button onClick={() => setShowPopup(false)} style={closeButtonStyle}>
+                <X size={24} />
+              </button>
+
+              {/* Header Pop-up */}
+              <div style={{ background: '#0d4f3c', padding: '15px', textAlign: 'center', color: 'white' }}>
+                 <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', alignItems: 'center' }}>
+                    <PartyPopper size={20} color="#c9a227" />
+                    <span style={{ fontWeight: '900', fontSize: '12px', letterSpacing: '2px' }}>KABAR PRESTASI</span>
+                    <PartyPopper size={20} color="#c9a227" />
+                 </div>
+              </div>
+
+              {/* Gambar Desain Mimin */}
+              <div style={{ position: 'relative', overflow: 'hidden' }}>
+                <img 
+                  src="/PTKIN..jpg" 
+                  alt="Selamat Lolos PTKIN" 
+                  style={{ width: '100%', display: 'block' }} 
+                  onError={(e) => { (e.target as any).src = "https://via.placeholder.com/600x800?text=Selamat+Lolos+SPAN-PTKIN+2026"; }}
+                />
+                
+                {/* Overlay teks singkat di bawah gambar */}
+                <div style={{ padding: '25px', background: 'white', textAlign: 'center' }}>
+                  <h3 style={{ color: '#0d4f3c', fontWeight: '950', fontSize: '1.4rem', marginBottom: '5px' }}>ALHAMDULILLAH!</h3>
+                  <p style={{ color: '#666', fontSize: '0.9rem', marginBottom: '20px' }}>Siswa-siswi terbaik kami berhasil menembus Kampus Islam Negeri Impian.</p>
+                  <Link href="/berita" onClick={() => setShowPopup(false)} style={buttonDetailStyle}>
+                    BACA SELENGKAPNYA <ArrowRight size={18} />
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* 1. RUNNING TEXT */}
       <div style={{ 
         background: '#c9a227', color: '#0d4f3c', padding: '12px 0', 
@@ -70,7 +130,7 @@ export default function HomePage() {
             style={{ display: 'inline-block' }}
           >
             <Bell size={16} style={{ marginBottom: '-4px', marginRight: '10px' }} />
-            SELAMAT DATANG DI SMAS NU TOBOALI --- PPDB TAHUN AJARAN 2026/2027 TELAH DIBUKA! --- حِمَايَةُ الدِّيْنِ وَالدَّوْلَةِ (MENJAGA AGAMA, MENJAGA NEGARA) --- SEGERA DAFTARKAN DIRI ANDA ---
+            SELAMAT KEPADA SISWA/I YANG LOLOS SPAN-PTKIN 2026! --- PPDB TAHUN AJARAN 2026/2027 TELAH DIBUKA! --- حِمَايَةُ الدِّيْنِ وَالدَّOWLَةِ --- SEGERA DAFTARKAN DIRI ANDA ---
           </motion.div>
         )}
       </div>
@@ -129,6 +189,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* --- SECTION LAINNYA TETAP SAMA SEPERTI KODE MIMIN --- */}
       {/* 3. PROGRAM UNGGULAN */}
       <section style={{ padding: '140px 5% 120px', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 5 }}>
         <div style={{ textAlign: 'center', marginBottom: '100px' }}>
@@ -185,7 +246,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. GALERI KEGIATAN (FIXED) */}
+      {/* 5. GALERI KEGIATAN */}
       <section style={{ padding: '120px 5%', background: '#faf6ef' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
@@ -320,3 +381,58 @@ export default function HomePage() {
     </div>
   );
 }
+
+// --- CSS STYLES ---
+
+const overlayStyle: React.CSSProperties = {
+  position: 'fixed',
+  top: 0, left: 0, right: 0, bottom: 0,
+  backgroundColor: 'rgba(0,0,0,0.85)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  zIndex: 9999,
+  padding: '20px'
+};
+
+const modalStyle: React.CSSProperties = {
+  backgroundColor: 'white',
+  maxWidth: '500px',
+  width: '100%',
+  borderRadius: '30px',
+  overflow: 'hidden',
+  position: 'relative',
+  boxShadow: '0 25px 50px -12px rgba(201, 162, 39, 0.5)'
+};
+
+const closeButtonStyle: React.CSSProperties = {
+  position: 'absolute',
+  top: '10px',
+  right: '10px',
+  background: 'rgba(255,255,255,0.2)',
+  border: 'none',
+  color: 'white',
+  borderRadius: '50%',
+  width: '35px',
+  height: '35px',
+  cursor: 'pointer',
+  zIndex: 10,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+};
+
+const buttonDetailStyle: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '10px',
+  background: '#c9a227',
+  color: '#0d4f3c',
+  padding: '12px 25px',
+  borderRadius: '12px',
+  textDecoration: 'none',
+  fontWeight: '900',
+  fontSize: '0.9rem',
+  transition: '0.3s'
+};
